@@ -343,6 +343,8 @@ export default function AntiBullyingLanding() {
         </div>
       </button>
     </div>
+    )
+  }
   
   return (
     <div className={"h-dvh bg-white relative " + inter.className}>
