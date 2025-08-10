@@ -144,7 +144,7 @@ export default function ContactoClientPage() {
             className="flex items-center gap-2 text-white bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 px-4 py-2 rounded-full transition-all duration-200 group shadow-sm"
           >
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform duration-200" />
-            <span className="font-medium text-sm">Volver</span>
+            <span className="font-medium text-sm">Back</span>
           </button>
         </div>
       </header>
@@ -154,7 +154,7 @@ export default function ContactoClientPage() {
         <div className="max-w-4xl mx-auto text-center px-4">
           <h1 className="text-3xl md:text-4xl lg:text-4xl font-medium leading-tight">
             <span className="bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent font-black">
-              Contacto
+              Contact
             </span>
           </h1>
         </div>
@@ -175,7 +175,7 @@ export default function ContactoClientPage() {
                 <div className="mb-8 relative z-10">
                   <Image
                     src="/images/equipo_bueno2.webp"
-                    alt="Superhéroes protectores: Michia, Firuja y Bolia"
+                    alt="Protective superheroes: Michia, Firuja and Bolia"
                     width={280}
                     height={200}
                     className="mx-auto drop-shadow-lg object-contain"
@@ -190,11 +190,11 @@ export default function ContactoClientPage() {
 
                 <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 tracking-tight relative z-10">
                   <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                    Te Escuchamos
+                    We're Listening
                   </span>
                 </h3>
                 <p className="text-lg text-gray-600 font-medium max-w-md leading-relaxed relative z-10">
-                  Cada mensaje nos ayuda a proteger mejor a los niños
+                  Every message helps us better protect children
                 </p>
                 
                 {/* 🛡️ TECNOLOGÍA EXCLUSIVA */}
@@ -202,16 +202,17 @@ export default function ContactoClientPage() {
                   <div className="flex items-center justify-center gap-2">
                     <Image 
                       src="/images/escudo.webp" 
-                      alt="Escudo" 
+                      alt="Shield" 
                       width={20} 
                       height={20} 
                       className="object-contain"
                     />
                     <span className="text-sm font-medium text-gray-700">
-                      Tecnología exclusiva{" "}
+                      Exclusive{" "}
                       <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent font-semibold">
                         TripleIA®
                       </span>
+                      {" "}technology
                     </span>
                   </div>
                 </div>
@@ -227,8 +228,8 @@ export default function ContactoClientPage() {
                         <CheckCircle className="text-green-600" size={16} />
                       </div>
                       <div>
-                        <p className="text-gray-900 font-medium text-sm">¡Mensaje enviado!</p>
-                        <p className="text-gray-600 text-xs">Nos encanta escucharte y leeremos tu mensaje con mucho cariño 💚</p>
+                        <p className="text-gray-900 font-medium text-sm">Message sent!</p>
+                        <p className="text-gray-600 text-xs">We love hearing from you and will read your message with care 💚</p>
                       </div>
                     </div>
                   </div>
@@ -242,11 +243,11 @@ export default function ContactoClientPage() {
                         <AlertCircle className="text-red-600" size={16} />
                       </div>
                       <div>
-                        <p className="text-gray-900 font-medium text-sm">Error al enviar</p>
+                        <p className="text-gray-900 font-medium text-sm">Error sending message</p>
                         <p className="text-gray-600 text-xs">
-                          Escríbenos directamente a{" "}
-                          <a href="mailto:hola@nomasbullying.es" className="text-blue-600 hover:text-blue-700 font-medium">
-                            hola@nomasbullying.es
+                          Write to us directly at{" "}
+                          <a href="mailto:hello@nomasbullying.es" className="text-blue-600 hover:text-blue-700 font-medium">
+                            hello@nomasbullying.es
                           </a>
                         </p>
                       </div>
@@ -257,7 +258,7 @@ export default function ContactoClientPage() {
                 {/* 📋 FORMULARIO */}
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Nombre</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
                     <input
                       type="text"
                       name="nombre"
@@ -265,7 +266,7 @@ export default function ContactoClientPage() {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:border-green-400 focus:ring-4 focus:ring-green-50 outline-none transition-all duration-200 text-gray-900 font-medium"
-                      placeholder="Tu nombre"
+                      placeholder="Your name"
                     />
                   </div>
 
@@ -278,12 +279,12 @@ export default function ContactoClientPage() {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:border-green-400 focus:ring-4 focus:ring-green-50 outline-none transition-all duration-200 text-gray-900 font-medium"
-                      placeholder="tu@email.com"
+                      placeholder="your@email.com"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Mensaje</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
                     <textarea
                       name="mensaje"
                       value={formData.mensaje}
@@ -291,7 +292,7 @@ export default function ContactoClientPage() {
                       required
                       rows={4}
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:border-green-400 focus:ring-4 focus:ring-green-50 outline-none transition-all duration-200 resize-none text-gray-900 font-medium"
-                      placeholder="¿Cómo podemos ayudarte?"
+                      placeholder="How can we help you?"
                     />
                   </div>
 
@@ -304,12 +305,12 @@ export default function ContactoClientPage() {
                     {isSubmitting ? (
                       <>
                         <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                        Enviando...
+                        Sending...
                       </>
                     ) : (
                       <>
                         <Send size={18} />
-                        Enviar mensaje
+                        Send message
                       </>
                     )}
                   </button>
@@ -321,12 +322,12 @@ export default function ContactoClientPage() {
           {/* 📧 EMAIL DIRECTO */}
           <div className="mt-8 text-center">
             <p className="text-sm text-gray-500">
-              ¿Prefieres escribir directamente?{" "}
+              Prefer to write directly?{" "}
               <a 
-                href="mailto:hola@nomasbullying.es" 
+                href="mailto:hello@nomasbullying.es" 
                 className="font-semibold text-transparent bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text hover:from-green-700 hover:to-blue-700 transition-all duration-200"
               >
-                hola@nomasbullying.es
+                hello@nomasbullying.es
               </a>
             </p>
           </div>
