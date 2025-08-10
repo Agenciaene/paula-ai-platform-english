@@ -251,7 +251,7 @@ const FakeInputTrap = () => {
               onClick={() => router.push("/technology")}
               className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent font-semibold hover:from-blue-600 hover:to-green-600 transition-all cursor-pointer"
             >
-              TripleAI®
+              QUATRA-AI™
             </button>
             {" "}technology
           </span>
