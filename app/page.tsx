@@ -410,12 +410,12 @@ export default function AntiBullyingLanding() {
               <Image
                 src="/images/usateam.webp"
                 alt="Tres superhéroes animales protectores: gatito azul, perrito verde y erizito naranja con escudos"
-                width={350}
-                height={250}
+                width={450}
+                height={350}
                 className="mx-auto object-contain relative z-10 drop-shadow-lg"
                 style={{ 
-                  maxWidth: '350px', 
-                  maxHeight: '250px',
+                  maxWidth: '450px', 
+                  maxHeight: '350px',
                   width: 'auto',
                   height: 'auto'
                 }}
