@@ -151,7 +151,7 @@ const FakeInputTrap = () => {
   const [showCursor, setShowCursor] = useState(true)
 
   // 🎯 UN SOLO MENSAJE EN BUCLE
-  const message = "Toca aquí para empezar el chat..."
+  const message = "Tap here to start..."
 
   // 🚀 Efecto máquina de escribir MÁS RÁPIDA
   useEffect(() => {
@@ -408,7 +408,7 @@ export default function AntiBullyingLanding() {
               
               {/* 🌟 Imagen principal - TAMAÑO CONTROLADO */}
               <Image
-                src="/images/equipo_bueno2.webp"
+                src="/images/usateam.webp"
                 alt="Tres superhéroes animales protectores: gatito azul, perrito verde y erizito naranja con escudos"
                 width={350}
                 height={250}
