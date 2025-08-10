@@ -236,7 +236,7 @@ const FakeInputTrap = () => {
       </div>
       
       {/* Beneficios profesionales */}
-       <div className="text-center mt-2">
+      <div className="text-center mt-2">
         <div className="flex items-center justify-center gap-2">
           <Image 
             src="/images/escudo.webp" 
@@ -248,10 +248,10 @@ const FakeInputTrap = () => {
           <span className="text-sm font-medium text-gray-700">
             Exclusive{" "}
             <button
-              onClick={() => router.push("/tecnologia")}
+              onClick={() => router.push("/technology")}
               className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent font-semibold hover:from-blue-600 hover:to-green-600 transition-all cursor-pointer"
             >
-              TripleIA®
+              TripleAI®
             </button>
             {" "}technology
           </span>
@@ -261,6 +261,68 @@ const FakeInputTrap = () => {
   )
 }
 
+// 🎮 COMPONENTE ROLEPLAY BUTTON
+const RolePlayButton = ({
+  character,
+  imageSrc,
+  altText,
+  shortLabel,
+  longLabel,
+  ringColor,
+  difficultyIcon,
+  difficultyImage,
+  handleRolePlayNav
+}: {
+  character: string
+  imageSrc: string
+  altText: string
+  shortLabel: string
+  longLabel: string
+  ringColor?: string
+  difficultyIcon?: string
+  difficultyImage?: string
+  handleRolePlayNav: (character: string) => void
+}) => (
+  <div className="relative">
+    {difficultyImage ? (
+      <div className="absolute -top-2 -right-2 z-10">
+        <Image
+          src={difficultyImage}
+          alt="Difficulty icon"
+          width={difficultyImage.includes('carmen_eva_ico') ? 32 : 35}
+          height={difficultyImage.includes('carmen_eva_ico') ? 32 : 35}
+          className="object-contain"
+        />
+      </div>
+    ) : difficultyIcon && (
+      <div className="absolute -top-2 -right-2 z-10 text-2xl">
+        {difficultyIcon}
+      </div>
+    )}
+    <button
+      onClick={() => handleRolePlayNav(character)}
+      className={"flex flex-col items-center text-center gap-3 text-gray-700 hover:scale-105 transition-transform duration-200 group w-36 p-2 rounded-xl " + (ringColor ? "ring-2 " + ringColor : "")}
+    >
+      <div className="h-24 w-full flex items-center justify-center">
+        <Image
+          src={imageSrc || "/placeholder.svg"}
+          alt={altText}
+          width={130}
+          height={130}
+          className="object-contain max-h-full w-auto"
+        />
+      </div>
+      <div className="h-10 flex items-center justify-center">
+        <p className="text-sm leading-tight">
+          <span className="md:hidden">{shortLabel}</span>
+          <span className="hidden md:inline">{longLabel}</span>
+        </p>
+      </div>
+    </button>
+  </div>
+)
+
+// 🏠 COMPONENTE PRINCIPAL
 export default function AntiBullyingLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const router = useRouter()
@@ -274,7 +336,7 @@ export default function AntiBullyingLanding() {
   }
 
   const handleNav = (path: string) => {
-    if (path === "/consejos" || path === "/contacto" || path === "/sobre-nosotros" || path === "/tecnologia") {
+    if (path === "/tips" || path === "/contact" || path === "/about" || path === "/technology") {
       router.push(path)
       setIsMenuOpen(false)
     } else {
@@ -284,67 +346,9 @@ export default function AntiBullyingLanding() {
   }
 
   const handleDonation = () => {
-    window.open("https://donate.stripe.com/8x2fZhcec3bH3OrbZP1sQ04", "_blank" )
+    window.open("https://donate.stripe.com/8x2fZhcec3bH3OrbZP1sQ04", "_blank")
   }
 
-  const RolePlayButton = ({
-    character,
-    imageSrc,
-    altText,
-    shortLabel,
-    longLabel,
-    ringColor,
-    difficultyIcon,
-    difficultyImage,
-  }: {
-    character: string
-    imageSrc: string
-    altText: string
-    shortLabel: string
-    longLabel: string
-    ringColor?: string
-    difficultyIcon?: string
-    difficultyImage?: string
-  }) => (
-    <div className="relative">
-      {difficultyImage ? (
-        <div className="absolute -top-2 -right-2 z-10">
-          <Image
-            src={difficultyImage}
-            alt="Difficulty icon"
-            width={difficultyImage.includes('carmen_eva_ico') ? 32 : 35}
-            height={difficultyImage.includes('carmen_eva_ico') ? 32 : 35}
-            className="object-contain"
-          />
-        </div>
-      ) : difficultyIcon && (
-        <div className="absolute -top-2 -right-2 z-10 text-2xl">
-          {difficultyIcon}
-        </div>
-      )}
-      <button
-        onClick={() => handleRolePlayNav(character)}
-        className={"flex flex-col items-center text-center gap-3 text-gray-700 hover:scale-105 transition-transform duration-200 group w-36 p-2 rounded-xl " + (ringColor ? "ring-2 " + ringColor : "")}
-      >
-        <div className="h-24 w-full flex items-center justify-center">
-          <Image
-            src={imageSrc || "/placeholder.svg"}
-            alt={altText}
-            width={130}
-            height={130}
-            className="object-contain max-h-full w-auto"
-          />
-        </div>
-        <div className="h-10 flex items-center justify-center">
-          <p className="text-sm leading-tight">
-            <span className="md:hidden">{shortLabel}</span>
-            <span className="hidden md:inline">{longLabel}</span>
-          </p>
-        </div>
-      </button>
-    </div>
-    )
-  
   return (
     <div className={"h-dvh bg-white relative " + inter.className}>
       <header className="absolute top-0 left-0 right-0 z-20 h-14 flex items-center">
@@ -356,25 +360,25 @@ export default function AntiBullyingLanding() {
           {isMenuOpen && (
             <div className="absolute top-14 right-8 bg-white border border-gray-200 rounded-lg shadow-lg w-48 py-2">
               <button
-                onClick={() => handleNav("/sobre-nosotros")}
+                onClick={() => handleNav("/about")}
                 className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-black"
               >
                 About Us
               </button>
               <button
-                onClick={() => handleNav("/consejos")}
+                onClick={() => handleNav("/tips")}
                 className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-black"
               >
                 Tips for Parents
               </button>
               <button
-                onClick={() => handleNav("/tecnologia")}
+                onClick={() => handleNav("/technology")}
                 className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-black"
               >
-                ⚡ TripleIA® Technology
+                ⚡ TripleAI® Technology
               </button>
               <button
-                onClick={() => handleNav("/contacto")}
+                onClick={() => handleNav("/contact")}
                 className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-black"
               >
                 Contact
@@ -398,9 +402,9 @@ export default function AntiBullyingLanding() {
             FOR PROTECTIVE PARENTS
           </h2>
 
-          {/* 🦸‍♂️ IMAGEN DE LOS SUPERHÉROES CON 18 PARTÍCULAS QUE PARPADEAN */}
+          {/* 🦸‍♂️ IMAGEN DE LOS SUPERHÉROES CON 30 PARTÍCULAS QUE PARPADEAN */}
           <div className="mt-4 flex justify-center relative">
-            {/* ✨ 18 Partículas que parpadean - 6 de cada color */}
+            {/* ✨ 30 Partículas que parpadean */}
             <TwinklingParticles />
             
             {/* ✨ Contenedor con brillo sutil */}
@@ -411,219 +415,7 @@ export default function AntiBullyingLanding() {
               {/* 🌟 Imagen principal - TAMAÑO CONTROLADO */}
               <Image
                 src="/images/usateam.webp"
-                alt="Three protective animal superheroes: blue kitt
-    <div className="mt-6 flex flex-col items-center gap-4">
-      <div 
-        className="relative group cursor-pointer w-full max-w-sm"
-        onClick={handleClick}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onMouseDown={() => setIsPressed(true)}
-        onMouseUp={() => setIsPressed(false)}
-      >
-        {/* 🌈 BOTÓN TRAMPERO MEJORADO - ESQUINAS OVALADAS, FONDO DEGRADADO */}
-        <div
-          className={"flex items-center w-full h-12 px-5 border-2 border-transparent rounded-3xl shadow-sm transition-all duration-300 select-none " + (isPressed ? 'scale-[0.98]' : '')}
-          style={{
-            background: isHovered 
-              ? 'linear-gradient(45deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.15))'
-              : 'linear-gradient(45deg, rgba(34, 197, 94, 0.1), rgba(6, 182, 212, 0.1))',
-            transform: isHovered ? 'scale(1.02)' : 'scale(1)',
-            backdropFilter: 'blur(10px)'
-          }}
-        >
-          {/* 🤖 Texto con efecto máquina de escribir - LETRA MÁS GRANDE */}
-          <div className="flex-1 flex items-center">
-            <div className="text-gray-700 font-medium text-lg">
-              <span>{displayText}</span>
-              <span className={showCursor ? 'opacity-100 transition-opacity' : 'opacity-0 transition-opacity'}>|</span>
-            </div>
-          </div>
-        </div>
-
-        {/* 🎪 Indicador de "clickeable" */}
-        <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white text-xs px-3 py-1 rounded-full shadow-lg animate-bounce">
-            ¡Toca aquí!
-          </div>
-        </div>
-      </div>
-      
-      {/* Beneficios profesionales */}
-       <div className="text-center mt-2">
-        <div className="flex items-center justify-center gap-2">
-          <Image 
-            src="/images/escudo.webp" 
-            alt="Escudo" 
-            width={20} 
-            height={20} 
-            className="object-contain"
-          />
-          <span className="text-sm font-medium text-gray-700">
-            Tecnología exclusiva{" "}
-            <button
-              onClick={() => router.push("/tecnologia")}
-              className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent font-semibold hover:from-blue-600 hover:to-green-600 transition-all cursor-pointer"
-            >
-              TripleIA®
-            </button>
-          </span>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-export default function AntiBullyingLanding() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const router = useRouter()
-
-  const handleRolePlayNav = (character: string) => {
-    router.push("/roleplay?character=" + character)
-  }
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  const handleNav = (path: string) => {
-    if (path === "/consejos" || path === "/contacto" || path === "/sobre-nosotros" || path === "/tecnologia") {
-      router.push(path)
-      setIsMenuOpen(false)
-    } else {
-      alert("Navegando a: " + path + " (página en desarrollo)")
-      setIsMenuOpen(false)
-    }
-  }
-
-  const handleDonation = () => {
-    window.open("https://donate.stripe.com/8x2fZhcec3bH3OrbZP1sQ04", "_blank" )
-  }
-
-  const RolePlayButton = ({
-    character,
-    imageSrc,
-    altText,
-    shortLabel,
-    longLabel,
-    ringColor,
-    difficultyIcon,
-    difficultyImage,
-  }: {
-    character: string
-    imageSrc: string
-    altText: string
-    shortLabel: string
-    longLabel: string
-    ringColor?: string
-    difficultyIcon?: string
-    difficultyImage?: string
-  }) => (
-    <div className="relative">
-      {difficultyImage ? (
-        <div className="absolute -top-2 -right-2 z-10">
-          <Image
-            src={difficultyImage}
-            alt="Icono de dificultad"
-            width={difficultyImage.includes('carmen_eva_ico') ? 32 : 35}
-            height={difficultyImage.includes('carmen_eva_ico') ? 32 : 35}
-            className="object-contain"
-          />
-        </div>
-      ) : difficultyIcon && (
-        <div className="absolute -top-2 -right-2 z-10 text-2xl">
-          {difficultyIcon}
-        </div>
-      )}
-      <button
-        onClick={() => handleRolePlayNav(character)}
-        className={"flex flex-col items-center text-center gap-3 text-gray-700 hover:scale-105 transition-transform duration-200 group w-36 p-2 rounded-xl " + (ringColor ? "ring-2 " + ringColor : "")}
-      >
-        <div className="h-24 w-full flex items-center justify-center">
-          <Image
-            src={imageSrc || "/placeholder.svg"}
-            alt={altText}
-            width={130}
-            height={130}
-            className="object-contain max-h-full w-auto"
-          />
-        </div>
-        <div className="h-10 flex items-center justify-center">
-          <p className="text-sm leading-tight">
-            <span className="md:hidden">{shortLabel}</span>
-            <span className="hidden md:inline">{longLabel}</span>
-          </p>
-        </div>
-      </button>
-    </div>
-  )
-  
-  return (
-    <div className={"h-dvh bg-white relative " + inter.className}>
-      <header className="absolute top-0 left-0 right-0 z-20 h-14 flex items-center">
-        <div className="w-full flex justify-end pr-8 pl-2 py-2 relative">
-          {/* 🍔 MENÚ HAMBURGUESA DE 3 RAYITAS CLÁSICO */}
-          <button onClick={toggleMenu} className="p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menú">
-            <Menu className="w-6 h-6 text-gray-700 hover:text-gray-900 transition-colors" />
-          </button>
-          {isMenuOpen && (
-            <div className="absolute top-14 right-8 bg-white border border-gray-200 rounded-lg shadow-lg w-48 py-2">
-              <button
-                onClick={() => handleNav("/sobre-nosotros")}
-                className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-black"
-              >
-                Sobre Nosotros
-              </button>
-              <button
-                onClick={() => handleNav("/consejos")}
-                className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-black"
-              >
-                Consejos para Padres
-              </button>
-              <button
-                onClick={() => handleNav("/tecnologia")}
-                className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-black"
-              >
-                ⚡ Tecnología TripleIA®
-              </button>
-              <button
-                onClick={() => handleNav("/contacto")}
-                className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-black"
-              >
-                Contacto
-              </button>
-            </div>
-          )}
-        </div>
-      </header>
-
-      <main className="absolute top-0 left-0 right-0 bottom-0 pt-14 overflow-y-auto">
-        <div className="max-w-4xl mx-auto text-center w-full px-4">
-          {/* 🎯 TÍTULO CON DEGRADADO AZUL-VERDE EN "BULLYING" */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center leading-tight">
-            <span className="text-gray-600">Chat Anti </span>
-            <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent font-black">BULLYING</span>
-          </h1>
-          
-          {/* 📏 SUBTÍTULO MÁS PEQUEÑO Y MÁS JUNTO */}
-          <h2 className="text-lg md:text-xl font-medium text-gray-600 mt-1 mb-6">
-            FOR PROTECTIVE PARENTS
-          </h2>
-
-          {/* 🦸‍♂️ IMAGEN DE LOS SUPERHÉROES CON 18 PARTÍCULAS QUE PARPADEAN */}
-          <div className="mt-4 flex justify-center relative">
-            {/* ✨ 18 Partículas que parpadean - 6 de cada color */}
-            <TwinklingParticles />
-            
-            {/* ✨ Contenedor con brillo sutil */}
-            <div className="relative group">
-              {/* 💫 Aura de brillo sutil */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-100/30 via-green-100/30 to-orange-100/30 rounded-full blur-xl scale-110 opacity-50 group-hover:opacity-70 transition-opacity duration-1000"></div>
-              
-              {/* 🌟 Imagen principal - TAMAÑO CONTROLADO */}
-              <Image
-                src="/images/usateam.webp"
-                alt="Tres superhéroes animales protectores: gatito azul, perrito verde y erizito naranja con escudos"
+                alt="Three protective animal superheroes: blue dog, green eagle and orange hedgehog with shields"
                 width={450}
                 height={350}
                 className="mx-auto object-contain relative z-10 drop-shadow-lg"
@@ -643,45 +435,49 @@ export default function AntiBullyingLanding() {
 
           <div className="mt-12 w-full">
             <h2 className="text-2xl font-bold text-gray-800 text-center">
-              O practica conversaciones incómodas con nuestros <span className="bg-gradient-to-r from-black to-red-600 bg-clip-text text-transparent">PERSONAJES</span>
+              Or practice difficult conversations with our <span className="bg-gradient-to-r from-black to-red-600 bg-clip-text text-transparent">CHARACTERS</span>
             </h2>
             <div className="mt-8 flex justify-center">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
                 <RolePlayButton
                   character="child"
                   imageSrc="/images/luisito2.webp"
-                  altText="Icono de Luisito, un niño de 7 años"
-                  shortLabel="Tu hijo Luisito"
-                  longLabel="Hablar con tu hijo Luisito"
+                  altText="Luis icon, a 7 year old boy"
+                  shortLabel="Your child Luis"
+                  longLabel="Talk with your child Luis"
                   ringColor="ring-green-500/50 hover:ring-green-600"
                   difficultyIcon="✅"
+                  handleRolePlayNav={handleRolePlayNav}
                 />
                 <RolePlayButton
                   character="parent"
                   imageSrc="/images/EVA MAMA DE ALEX.webp"
-                  altText="Icono de Eva, madre de Alex"
-                  shortLabel="Mamá de Alex"
-                  longLabel="Hablar con Eva, mamá de Alex"
+                  altText="Eva icon, Alex's mom"
+                  shortLabel="Alex's Mom"
+                  longLabel="Talk with Eva, Alex's mom"
                   ringColor="ring-blue-500/50 hover:ring-blue-600"
                   difficultyImage="/images/carmen_eva_ico copy copy.webp"
+                  handleRolePlayNav={handleRolePlayNav}
                 />
                 <RolePlayButton
                   character="teacher"
                   imageSrc="/images/Carmen profesora.webp"
-                  altText="Icono de Carmen, una profesora agotada"
-                  shortLabel="Profe Carmen"
-                  longLabel="Hablar con la Profe Carmen"
+                  altText="Carmen icon, exhausted teacher"
+                  shortLabel="Teacher Carmen"
+                  longLabel="Talk with Teacher Carmen"
                   ringColor="ring-orange-500/50 hover:ring-orange-600"
                   difficultyImage="/images/carmen_eva_ico copy copy.webp"
+                  handleRolePlayNav={handleRolePlayNav}
                 />
                 <RolePlayButton
                   character="parent_hostile"
                   imageSrc="/images/paco bullying.webp"
-                  altText="Icono de Paco, un padre hostil"
-                  shortLabel="Modo Pesadilla"
-                  longLabel="Modo Pesadilla: Paco"
+                  altText="Paco icon, hostile parent"
+                  shortLabel="Nightmare Mode"
+                  longLabel="Nightmare Mode: Paco"
                   ringColor="ring-red-500/50 hover:ring-red-600"
                   difficultyImage="/images/paco_icon.webp"
+                  handleRolePlayNav={handleRolePlayNav}
                 />
               </div>
             </div>
@@ -690,14 +486,14 @@ export default function AntiBullyingLanding() {
           <div className="w-full text-center p-6 mt-12">
             <div className="text-sm text-gray-500 flex flex-col sm:flex-row sm:space-x-4 justify-center items-center gap-3 sm:gap-0">
               <div className="flex space-x-4 justify-center items-center">
-                <span>© 2025 NoMasBullying</span>
+                <span>© 2025 NoBullying</span>
                 <span className="text-gray-300">|</span>
                 <a href="/privacy" className="hover:underline">
-                  Política de Privacidad
+                  Privacy Policy
                 </a>
                 <span className="text-gray-300">|</span>
-                <button onClick={() => router.push("/contacto")} className="hover:underline cursor-pointer">
-                  Contacto
+                <button onClick={() => router.push("/contact")} className="hover:underline cursor-pointer">
+                  Contact
                 </button>
               </div>
               
@@ -710,12 +506,12 @@ export default function AntiBullyingLanding() {
                   <span className="heartbeat-animation">
                     <Image
                       src="/images/corazon footer.webp"
-                      alt="Corazón sonriente de Héroe"
+                      alt="Hero heart smile"
                       width={28}
                       height={28}
                     />
                   </span>
-                  Solo para Héroes
+                  Heroes Only
                 </button>
               </div>
             </div>
