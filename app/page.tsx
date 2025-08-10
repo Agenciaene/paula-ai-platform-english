@@ -393,7 +393,7 @@ export default function AntiBullyingLanding() {
           
           {/* 📏 SUBTÍTULO MÁS PEQUEÑO Y MÁS JUNTO */}
           <h2 className="text-lg md:text-xl font-medium text-gray-600 mt-1 mb-6">
-            PARA PADRES PROTECTORES
+            FOR PROTECTIVE PARENTS
           </h2>
 
           {/* 🦸‍♂️ IMAGEN DE LOS SUPERHÉROES CON 18 PARTÍCULAS QUE PARPADEAN */}
