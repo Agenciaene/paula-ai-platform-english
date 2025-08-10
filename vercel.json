@@ -1,0 +1,11 @@
+{
+  "functions": {
+    "app/api/chat/route.ts": {
+      "maxDuration": 30
+    },
+    "app/api/roleplay-chat/route.ts": {
+      "maxDuration": 30
+    }
+  }
+}
+
