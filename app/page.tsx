@@ -230,6 +230,220 @@ const FakeInputTrap = () => {
         {/* 🎪 Indicador de "clickeable" */}
         <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white text-xs px-3 py-1 rounded-full shadow-lg animate-bounce">
+            Tap here!
+          </div>
+        </div>
+      </div>
+      
+      {/* Beneficios profesionales */}
+       <div className="text-center mt-2">
+        <div className="flex items-center justify-center gap-2">
+          <Image 
+            src="/images/escudo.webp" 
+            alt="Shield" 
+            width={20} 
+            height={20} 
+            className="object-contain"
+          />
+          <span className="text-sm font-medium text-gray-700">
+            Exclusive{" "}
+            <button
+              onClick={() => router.push("/tecnologia")}
+              className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent font-semibold hover:from-blue-600 hover:to-green-600 transition-all cursor-pointer"
+            >
+              TripleIA®
+            </button>
+            {" "}technology
+          </span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default function AntiBullyingLanding() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const router = useRouter()
+
+  const handleRolePlayNav = (character: string) => {
+    router.push("/roleplay?character=" + character)
+  }
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  const handleNav = (path: string) => {
+    if (path === "/consejos" || path === "/contacto" || path === "/sobre-nosotros" || path === "/tecnologia") {
+      router.push(path)
+      setIsMenuOpen(false)
+    } else {
+      alert("Navigating to: " + path + " (page under development)")
+      setIsMenuOpen(false)
+    }
+  }
+
+  const handleDonation = () => {
+    window.open("https://donate.stripe.com/8x2fZhcec3bH3OrbZP1sQ04", "_blank" )
+  }
+
+  const RolePlayButton = ({
+    character,
+    imageSrc,
+    altText,
+    shortLabel,
+    longLabel,
+    ringColor,
+    difficultyIcon,
+    difficultyImage,
+  }: {
+    character: string
+    imageSrc: string
+    altText: string
+    shortLabel: string
+    longLabel: string
+    ringColor?: string
+    difficultyIcon?: string
+    difficultyImage?: string
+  }) => (
+    <div className="relative">
+      {difficultyImage ? (
+        <div className="absolute -top-2 -right-2 z-10">
+          <Image
+            src={difficultyImage}
+            alt="Difficulty icon"
+            width={difficultyImage.includes('carmen_eva_ico') ? 32 : 35}
+            height={difficultyImage.includes('carmen_eva_ico') ? 32 : 35}
+            className="object-contain"
+          />
+        </div>
+      ) : difficultyIcon && (
+        <div className="absolute -top-2 -right-2 z-10 text-2xl">
+          {difficultyIcon}
+        </div>
+      )}
+      <button
+        onClick={() => handleRolePlayNav(character)}
+        className={"flex flex-col items-center text-center gap-3 text-gray-700 hover:scale-105 transition-transform duration-200 group w-36 p-2 rounded-xl " + (ringColor ? "ring-2 " + ringColor : "")}
+      >
+        <div className="h-24 w-full flex items-center justify-center">
+          <Image
+            src={imageSrc || "/placeholder.svg"}
+            alt={altText}
+            width={130}
+            height={130}
+            className="object-contain max-h-full w-auto"
+          />
+        </div>
+        <div className="h-10 flex items-center justify-center">
+          <p className="text-sm leading-tight">
+            <span className="md:hidden">{shortLabel}</span>
+            <span className="hidden md:inline">{longLabel}</span>
+          </p>
+        </div>
+      </button>
+    </div>
+  )
+  
+  return (
+    <div className={"h-dvh bg-white relative " + inter.className}>
+      <header className="absolute top-0 left-0 right-0 z-20 h-14 flex items-center">
+        <div className="w-full flex justify-end pr-8 pl-2 py-2 relative">
+          {/* 🍔 MENÚ HAMBURGUESA DE 3 RAYITAS CLÁSICO */}
+          <button onClick={toggleMenu} className="p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu">
+            <Menu className="w-6 h-6 text-gray-700 hover:text-gray-900 transition-colors" />
+          </button>
+          {isMenuOpen && (
+            <div className="absolute top-14 right-8 bg-white border border-gray-200 rounded-lg shadow-lg w-48 py-2">
+              <button
+                onClick={() => handleNav("/sobre-nosotros")}
+                className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-black"
+              >
+                About Us
+              </button>
+              <button
+                onClick={() => handleNav("/consejos")}
+                className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-black"
+              >
+                Tips for Parents
+              </button>
+              <button
+                onClick={() => handleNav("/tecnologia")}
+                className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-black"
+              >
+                ⚡ TripleIA® Technology
+              </button>
+              <button
+                onClick={() => handleNav("/contacto")}
+                className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-black"
+              >
+                Contact
+              </button>
+            </div>
+          )}
+        </div>
+      </header>
+
+      <main className="absolute top-0 left-0 right-0 bottom-0 pt-14 overflow-y-auto">
+        <div className="max-w-4xl mx-auto text-center w-full px-4">
+          {/* 🎯 TÍTULO CON DEGRADADO AZUL-VERDE EN "BULLYING" */}
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center leading-tight">
+            <span className="text-gray-600">Anti </span>
+            <span className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent font-black">BULLYING</span>
+            <span className="text-gray-600"> Chat</span>
+          </h1>
+          
+          {/* 📏 SUBTÍTULO MÁS PEQUEÑO Y MÁS JUNTO */}
+          <h2 className="text-lg md:text-xl font-medium text-gray-600 mt-1 mb-6">
+            FOR PROTECTIVE PARENTS
+          </h2>
+
+          {/* 🦸‍♂️ IMAGEN DE LOS SUPERHÉROES CON 18 PARTÍCULAS QUE PARPADEAN */}
+          <div className="mt-4 flex justify-center relative">
+            {/* ✨ 18 Partículas que parpadean - 6 de cada color */}
+            <TwinklingParticles />
+            
+            {/* ✨ Contenedor con brillo sutil */}
+            <div className="relative group">
+              {/* 💫 Aura de brillo sutil */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-100/30 via-green-100/30 to-orange-100/30 rounded-full blur-xl scale-110 opacity-50 group-hover:opacity-70 transition-opacity duration-1000"></div>
+              
+              {/* 🌟 Imagen principal - TAMAÑO CONTROLADO */}
+              <Image
+                src="/images/usateam.webp"
+                alt="Three protective animal superheroes: blue kitt
+    <div className="mt-6 flex flex-col items-center gap-4">
+      <div 
+        className="relative group cursor-pointer w-full max-w-sm"
+        onClick={handleClick}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onMouseDown={() => setIsPressed(true)}
+        onMouseUp={() => setIsPressed(false)}
+      >
+        {/* 🌈 BOTÓN TRAMPERO MEJORADO - ESQUINAS OVALADAS, FONDO DEGRADADO */}
+        <div
+          className={"flex items-center w-full h-12 px-5 border-2 border-transparent rounded-3xl shadow-sm transition-all duration-300 select-none " + (isPressed ? 'scale-[0.98]' : '')}
+          style={{
+            background: isHovered 
+              ? 'linear-gradient(45deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.15))'
+              : 'linear-gradient(45deg, rgba(34, 197, 94, 0.1), rgba(6, 182, 212, 0.1))',
+            transform: isHovered ? 'scale(1.02)' : 'scale(1)',
+            backdropFilter: 'blur(10px)'
+          }}
+        >
+          {/* 🤖 Texto con efecto máquina de escribir - LETRA MÁS GRANDE */}
+          <div className="flex-1 flex items-center">
+            <div className="text-gray-700 font-medium text-lg">
+              <span>{displayText}</span>
+              <span className={showCursor ? 'opacity-100 transition-opacity' : 'opacity-0 transition-opacity'}>|</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 🎪 Indicador de "clickeable" */}
+        <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white text-xs px-3 py-1 rounded-full shadow-lg animate-bounce">
             ¡Toca aquí!
           </div>
         </div>
