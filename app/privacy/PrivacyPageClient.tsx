@@ -11,16 +11,16 @@ export default function PrivacyPageClient() {
 
   return (
     <div className={`min-h-screen bg-white relative overflow-hidden ${inter.className}`}>
-      {/* ✨ PARTÍCULAS PARPADEANTES SUTILES */}
+      {/* ✨ SUBTLE TWINKLING PARTICLES */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Partículas azules */}
+        {/* Blue particles */}
         <div className="absolute top-20 left-16 w-1 h-1 bg-blue-400 rounded-full animate-twinkle opacity-60"></div>
         <div className="absolute top-32 right-20 w-1 h-1 bg-blue-500 rounded-full animate-twinkle opacity-50" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-48 left-1/4 w-1 h-1 bg-blue-400 rounded-full animate-twinkle opacity-40" style={{ animationDelay: '2s' }}></div>
         <div className="absolute top-64 right-1/3 w-1 h-1 bg-blue-500 rounded-full animate-twinkle opacity-60" style={{ animationDelay: '3s' }}></div>
         <div className="absolute top-80 left-1/3 w-1 h-1 bg-blue-400 rounded-full animate-twinkle opacity-50" style={{ animationDelay: '4s' }}></div>
         
-        {/* Partículas verdes */}
+        {/* Green particles */}
         <div className="absolute top-24 right-16 w-1 h-1 bg-green-400 rounded-full animate-twinkle opacity-60" style={{ animationDelay: '0.5s' }}></div>
         <div className="absolute top-40 left-20 w-1 h-1 bg-green-500 rounded-full animate-twinkle opacity-50" style={{ animationDelay: '1.5s' }}></div>
         <div className="absolute top-56 right-1/4 w-1 h-1 bg-green-400 rounded-full animate-twinkle opacity-40" style={{ animationDelay: '2.5s' }}></div>
@@ -28,7 +28,7 @@ export default function PrivacyPageClient() {
         <div className="absolute top-88 right-1/3 w-1 h-1 bg-green-400 rounded-full animate-twinkle opacity-50" style={{ animationDelay: '4.5s' }}></div>
       </div>
 
-      {/* 🔄 HEADER COHERENTE */}
+      {/* 🔄 COHERENT HEADER */}
       <header className="sticky top-0 bg-white/90 backdrop-blur-sm border-b border-gray-100 shadow-sm z-20">
         <div className="max-w-4xl mx-auto px-4 md:px-6 py-3">
           <div className="flex items-center gap-3">
@@ -37,13 +37,13 @@ export default function PrivacyPageClient() {
               className="flex items-center gap-2 px-3 py-2 text-black hover:text-gray-800 hover:bg-green-50 rounded-lg transition-all duration-300 group border border-green-100 hover:border-green-200"
             >
               <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform duration-300" />
-              <span className="text-sm font-medium">Volver</span>
+              <span className="text-sm font-medium">Back</span>
             </button>
             <div className="flex flex-col">
               <h1 className="text-lg font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                Política de Privacidad
+                Privacy Policy
               </h1>
-              <p className="text-xs text-gray-600 font-medium">Protección de datos y privacidad</p>
+              <p className="text-xs text-gray-600 font-medium">Data protection and privacy</p>
             </div>
           </div>
         </div>
@@ -51,62 +51,62 @@ export default function PrivacyPageClient() {
 
       <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12 relative z-10">
         <div className="bg-white space-y-12">
-          {/* 🎨 ENCABEZADO PRINCIPAL CON DEGRADADO */}
+          {/* 🎨 MAIN HEADER WITH GRADIENT */}
           <div className="border-b border-gray-200 pb-8">
             <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6 tracking-tight">
-              POLÍTICA DE PRIVACIDAD
+              PRIVACY POLICY
             </h1>
             <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
               <p className="text-gray-700 leading-relaxed mb-4">
-                La presente Política de Privacidad establece los términos en que No Mas Bullying usa y protege la
-                información que es proporcionada por sus usuarios al momento de utilizar nuestros servicios. Esta
-                plataforma está comprometida con la seguridad de los datos de sus usuarios.
+                This Privacy Policy establishes the terms under which No More Bullying uses and protects the
+                information provided by its users when using our services. This
+                platform is committed to the security of its users' data.
               </p>
               <div className="text-sm text-gray-600 space-y-1">
                 <p>
-                  <strong className="text-green-700">Fecha de entrada en vigor:</strong> 27 de enero de 2025
+                  <strong className="text-green-700">Effective date:</strong> January 27, 2025
                 </p>
                 <p>
-                  <strong className="text-green-700">Última actualización:</strong> 28 de julio de 2025
+                  <strong className="text-green-700">Last update:</strong> July 28, 2025
                 </p>
                 <p>
-                  <strong className="text-green-700">Responsable del tratamiento:</strong> No Mas Bullying - Plataforma de Protección Infantil
+                  <strong className="text-green-700">Data controller:</strong> No More Bullying - Child Protection Platform
                 </p>
               </div>
             </div>
           </div>
 
-          {/* 1. Información que recopilamos */}
+          {/* 1. Information we collect */}
           <section>
             <h2 className="text-2xl font-semibold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
-              1. INFORMACIÓN QUE RECOPILAMOS
+              1. INFORMATION WE COLLECT
             </h2>
 
             <div className="space-y-8">
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  1.1. Datos de Comunicación
+                  1.1. Communication Data
                 </h3>
                 <div className="ml-6 space-y-3 text-gray-700">
                   <p>
-                    <strong>a) Contenido de conversaciones:</strong> Registramos todos los mensajes intercambiados entre
-                    el usuario y nuestro sistema de inteligencia artificial.
+                    <strong>a) Conversation content:</strong> We record all messages exchanged between
+                    the user and our artificial intelligence system.
                   </p>
                   <p>
-                    <strong>b) Metadatos de sesión:</strong> Fecha, hora de inicio y finalización, duración de las
-                    conversaciones.
+                    <strong>b) Session metadata:</strong> Date, start and end time, duration of
+                    conversations.
                   </p>
                   <p>
-                    <strong>c) Respuestas generadas:</strong> Todas las respuestas proporcionadas por nuestro sistema de
-                    IA.
+                    <strong>c) Generated responses:</strong> All responses provided by our
+                    AI system.
                   </p>
                 </div>
                 <div className="ml-6 mt-4 p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400 rounded-r-lg">
                   <p className="text-sm text-amber-800">
-                    <strong>PROTECCIÓN ESPECIAL:</strong> Cuando se mencionen nombres de menores de edad, nuestro
-                    sistema procede automáticamente a su anonimización, reemplazándolos por términos genéricos en todos
-                    nuestros registros.
+                    <strong>SPECIAL PROTECTION:</strong> When names of minors are mentioned, our
+                    system automatically proceeds to anonymize them, replacing them with generic terms in all
+                    our records.
                   </p>
                 </div>
               </div>
@@ -114,18 +114,18 @@ export default function PrivacyPageClient() {
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  1.2. Datos Técnicos
+                  1.2. Technical Data
                 </h3>
                 <div className="ml-6 space-y-3 text-gray-700">
                   <p>
-                    <strong>a) Información de conexión:</strong> Dirección IP, tipo de navegador, sistema operativo.
+                    <strong>a) Connection information:</strong> IP address, browser type, operating system.
                   </p>
                   <p>
-                    <strong>b) Datos de dispositivo:</strong> Tipo de dispositivo utilizado para acceder al servicio.
+                    <strong>b) Device data:</strong> Type of device used to access the service.
                   </p>
                   <p>
-                    <strong>c) Cookies técnicas:</strong> Únicamente las estrictamente necesarias para el funcionamiento
-                    del servicio.
+                    <strong>c) Technical cookies:</strong> Only those strictly necessary for the functioning
+                    of the service.
                   </p>
                 </div>
               </div>
@@ -133,17 +133,17 @@ export default function PrivacyPageClient() {
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                   <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                  1.3. Información que NO Recopilamos
+                  1.3. Information We DO NOT Collect
                 </h3>
                 <div className="ml-6 text-gray-700">
-                  <p className="mb-3">No Mas Bullying no recopila ni almacena:</p>
+                  <p className="mb-3">No More Bullying does not collect or store:</p>
                   <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                     <ul className="space-y-2 list-disc list-inside text-sm">
-                      <li>Nombres completos o datos de identificación personal</li>
-                      <li>Direcciones físicas, números de teléfono o información de contacto</li>
-                      <li>Información financiera o de medios de pago</li>
-                      <li>Cookies de seguimiento, analítica o publicitarias</li>
-                      <li>Acceso a cámara, micrófono o archivos del dispositivo</li>
+                      <li>Full names or personal identification data</li>
+                      <li>Physical addresses, phone numbers, or contact information</li>
+                      <li>Financial or payment method information</li>
+                      <li>Tracking, analytics, or advertising cookies</li>
+                      <li>Access to camera, microphone, or device files</li>
                     </ul>
                   </div>
                 </div>
@@ -151,34 +151,34 @@ export default function PrivacyPageClient() {
             </div>
           </section>
 
-          {/* 2. Finalidad del tratamiento */}
+          {/* 2. Purpose of processing */}
           <section>
             <h2 className="text-2xl font-semibold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
-              2. FINALIDAD DEL TRATAMIENTO
+              2. PURPOSE OF PROCESSING
             </h2>
 
             <div className="space-y-6">
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  2.1. Finalidades Principales
+                  2.1. Main Purposes
                 </h3>
                 <div className="ml-6 space-y-3 text-gray-700">
                   <div className="flex items-start gap-3">
                     <span className="font-bold text-green-600 mt-1">a)</span>
-                    <p>Proporcionar respuestas personalizadas y contextualmente relevantes a través de nuestro sistema de IA.</p>
+                    <p>Provide personalized and contextually relevant responses through our AI system.</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="font-bold text-green-600 mt-1">b)</span>
-                    <p>Mantener la continuidad y coherencia en las conversaciones durante una sesión.</p>
+                    <p>Maintain continuity and coherence in conversations during a session.</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="font-bold text-green-600 mt-1">c)</span>
-                    <p>Mejorar la calidad y precisión de las respuestas del sistema de inteligencia artificial.</p>
+                    <p>Improve the quality and accuracy of the artificial intelligence system's responses.</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="font-bold text-green-600 mt-1">d)</span>
-                    <p>Garantizar la seguridad del servicio y prevenir usos malintencionados.</p>
+                    <p>Ensure service security and prevent malicious use.</p>
                   </div>
                 </div>
               </div>
@@ -186,30 +186,30 @@ export default function PrivacyPageClient() {
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  2.2. Finalidades Secundarias
+                  2.2. Secondary Purposes
                 </h3>
                 <div className="ml-6 space-y-3 text-gray-700">
                   <div className="flex items-start gap-3">
                     <span className="font-bold text-blue-600 mt-1">a)</span>
-                    <p>Realizar análisis estadísticos agregados y anonimizados para investigación.</p>
+                    <p>Conduct aggregated and anonymized statistical analysis for research.</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="font-bold text-blue-600 mt-1">b)</span>
-                    <p>Cumplir con obligaciones legales y requerimientos de autoridades competentes.</p>
+                    <p>Comply with legal obligations and requirements from competent authorities.</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="font-bold text-blue-600 mt-1">c)</span>
-                    <p>Ejercer o defender derechos en procedimientos legales.</p>
+                    <p>Exercise or defend rights in legal proceedings.</p>
                   </div>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* 3. Base legal */}
+          {/* 3. Legal basis */}
           <section>
             <h2 className="text-2xl font-semibold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
-              3. BASE LEGAL DEL TRATAMIENTO
+              3. LEGAL BASIS FOR PROCESSING
             </h2>
 
             <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
@@ -217,72 +217,72 @@ export default function PrivacyPageClient() {
                 <div className="flex items-start gap-3">
                   <span className="font-bold text-green-600 mt-1">a)</span>
                   <div>
-                    <strong>Consentimiento:</strong> El uso voluntario de nuestros servicios constituye consentimiento
-                    para el tratamiento de datos según se describe en esta política.
+                    <strong>Consent:</strong> The voluntary use of our services constitutes consent
+                    for data processing as described in this policy.
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="font-bold text-blue-600 mt-1">b)</span>
                   <div>
-                    <strong>Interés legítimo:</strong> La mejora de nuestros servicios de protección infantil y
-                    prevención del acoso escolar.
+                    <strong>Legitimate interest:</strong> The improvement of our child protection services and
+                    prevention of school bullying.
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="font-bold text-green-600 mt-1">c)</span>
                   <div>
-                    <strong>Cumplimiento legal:</strong> Obligaciones derivadas de la normativa aplicable en materia de
-                    protección de menores.
+                    <strong>Legal compliance:</strong> Obligations arising from applicable regulations on
+                    child protection.
                   </div>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* 4. Protección de menores */}
+          {/* 4. Protection of minors */}
           <section>
             <h2 className="text-2xl font-semibold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
-              4. PROTECCIÓN ESPECIAL DE MENORES DE EDAD
+              4. SPECIAL PROTECTION OF MINORS
             </h2>
 
             <div className="space-y-6">
               <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
                 <p className="text-gray-700 mb-6 font-medium">
-                  Dada la naturaleza de nuestros servicios, aplicamos medidas de protección reforzadas para cualquier
-                  información que pueda relacionarse con menores de edad:
+                  Given the nature of our services, we apply enhanced protection measures for any
+                  information that may relate to minors:
                 </p>
 
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="bg-white rounded-lg p-4 border border-amber-200">
                     <h4 className="font-semibold text-amber-800 mb-3 flex items-center gap-2">
                       <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                      4.1. Anonimización Automática
+                      4.1. Automatic Anonymization
                     </h4>
                     <p className="text-gray-700 text-sm">
-                      Cualquier referencia a nombres propios de menores es automáticamente sustituida por términos
-                      genéricos en nuestros sistemas de almacenamiento.
+                      Any reference to minors' proper names is automatically replaced with generic
+                      terms in our storage systems.
                     </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-4 border border-amber-200">
                     <h4 className="font-semibold text-amber-800 mb-3 flex items-center gap-2">
                       <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                      4.2. Acceso Restringido
+                      4.2. Restricted Access
                     </h4>
                     <p className="text-gray-700 text-sm">
-                      El acceso a conversaciones que involucren menores está limitado exclusivamente a personal
-                      autorizado con formación específica en protección infantil.
+                      Access to conversations involving minors is limited exclusively to authorized
+                      personnel with specific training in child protection.
                     </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-4 border border-amber-200">
                     <h4 className="font-semibold text-amber-800 mb-3 flex items-center gap-2">
                       <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                      4.3. Retención Reducida
+                      4.3. Reduced Retention
                     </h4>
                     <p className="text-gray-700 text-sm">
-                      Las conversaciones que involucren menores se eliminan automáticamente en un plazo máximo de 90
-                      días, inferior al período general de retención.
+                      Conversations involving minors are automatically deleted within a maximum period of 90
+                      days, less than the general retention period.
                     </p>
                   </div>
                 </div>
@@ -290,35 +290,35 @@ export default function PrivacyPageClient() {
             </div>
           </section>
 
-          {/* 5. Seguridad */}
+          {/* 5. Security */}
           <section>
             <h2 className="text-2xl font-semibold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
-              5. MEDIDAS DE SEGURIDAD
+              5. SECURITY MEASURES
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  5.1. Medidas Técnicas
+                  5.1. Technical Measures
                 </h3>
                 <div className="bg-green-50 rounded-lg p-4 border border-green-200">
                   <div className="space-y-3 text-gray-700 text-sm">
                     <div className="flex items-start gap-2">
                       <span className="font-bold text-green-600 mt-1">•</span>
-                      <p>Encriptación end-to-end de todas las comunicaciones utilizando protocolos TLS 1.3.</p>
+                      <p>End-to-end encryption of all communications using TLS 1.3 protocols.</p>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="font-bold text-green-600 mt-1">•</span>
-                      <p>Encriptación de datos en reposo mediante algoritmos AES-256.</p>
+                      <p>Data-at-rest encryption using AES-256 algorithms.</p>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="font-bold text-green-600 mt-1">•</span>
-                      <p>Sistemas de detección y prevención de intrusiones (IDS/IPS).</p>
+                      <p>Intrusion detection and prevention systems (IDS/IPS).</p>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="font-bold text-green-600 mt-1">•</span>
-                      <p>Monitorización continua de accesos y actividades sospechosas.</p>
+                      <p>Continuous monitoring of access and suspicious activities.</p>
                     </div>
                   </div>
                 </div>
@@ -327,25 +327,25 @@ export default function PrivacyPageClient() {
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  5.2. Medidas Organizativas
+                  5.2. Organizational Measures
                 </h3>
                 <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
                   <div className="space-y-3 text-gray-700 text-sm">
                     <div className="flex items-start gap-2">
                       <span className="font-bold text-blue-600 mt-1">•</span>
-                      <p>Autenticación multifactor para todo el personal con acceso a datos.</p>
+                      <p>Multi-factor authentication for all personnel with data access.</p>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="font-bold text-blue-600 mt-1">•</span>
-                      <p>Principio de acceso mínimo necesario (least privilege).</p>
+                      <p>Principle of least privilege access.</p>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="font-bold text-blue-600 mt-1">•</span>
-                      <p>Auditorías de seguridad regulares realizadas por terceros independientes.</p>
+                      <p>Regular security audits conducted by independent third parties.</p>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="font-bold text-blue-600 mt-1">•</span>
-                      <p>Formación continua del personal en materia de protección de datos.</p>
+                      <p>Continuous staff training on data protection.</p>
                     </div>
                   </div>
                 </div>
@@ -353,77 +353,77 @@ export default function PrivacyPageClient() {
             </div>
           </section>
 
-          {/* 6. Derechos del usuario */}
+          {/* 6. User rights */}
           <section>
             <h2 className="text-2xl font-semibold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
-              6. DERECHOS DE LOS USUARIOS
+              6. USER RIGHTS
             </h2>
 
             <div className="space-y-6">
               <p className="text-gray-700 font-medium">
-                Conforme al Reglamento General de Protección de Datos (RGPD) y la legislación nacional aplicable, los
-                usuarios tienen los siguientes derechos:
+                In accordance with the General Data Protection Regulation (GDPR) and applicable national legislation, 
+                users have the following rights:
               </p>
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
                   <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    6.1. Derecho de Acceso
+                    6.1. Right of Access
                   </h4>
                   <p className="text-gray-700 text-sm">
-                    Obtener confirmación sobre si estamos tratando sus datos personales y, en su caso, acceder a los
-                    mismos.
+                    Obtain confirmation about whether we are processing your personal data and, if so, access to 
+                    such data.
                   </p>
                 </div>
 
                 <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
                   <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    6.2. Derecho de Rectificación
+                    6.2. Right to Rectification
                   </h4>
                   <p className="text-gray-700 text-sm">
-                    Solicitar la rectificación de datos inexactos o la completitud de datos incompletos.
+                    Request the rectification of inaccurate data or the completion of incomplete data.
                   </p>
                 </div>
 
                 <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
                   <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    6.3. Derecho de Supresión
+                    6.3. Right to Erasure
                   </h4>
                   <p className="text-gray-700 text-sm">
-                    Solicitar la eliminación de sus datos personales cuando concurran determinadas circunstancias.
+                    Request the deletion of your personal data when certain circumstances apply.
                   </p>
                 </div>
 
                 <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
                   <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    6.4. Derecho a la Limitación
+                    6.4. Right to Restriction
                   </h4>
                   <p className="text-gray-700 text-sm">
-                    Solicitar la suspensión del tratamiento de sus datos en determinadas circunstancias.
+                    Request the suspension of processing of your data in certain circumstances.
                   </p>
                 </div>
 
                 <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
                   <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    6.5. Derecho a la Portabilidad
+                    6.5. Right to Data Portability
                   </h4>
                   <p className="text-gray-700 text-sm">
-                    Recibir sus datos en un formato estructurado, de uso común y lectura mecánica.
+                    Receive your data in a structured, commonly used and machine-readable format.
                   </p>
                 </div>
 
                 <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
                   <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    6.6. Derecho de Oposición
+                    6.6. Right to Object
                   </h4>
                   <p className="text-gray-700 text-sm">
-                    Oponerse al tratamiento de sus datos por motivos relacionados con su situación particular.
+                    Object to the processing of your data for reasons related to your particular situation.
                   </p>
                 </div>
               </div>
@@ -431,30 +431,30 @@ export default function PrivacyPageClient() {
               <div className="bg-white border border-gray-200 rounded-xl p-6 mt-6 shadow-sm">
                 <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  Ejercicio de Derechos
+                  Exercising Rights
                 </h4>
                 <p className="text-gray-700 text-sm mb-3">
-                  Para ejercer cualquiera de estos derechos, los usuarios pueden dirigirse a nosotros a través de:
+                  To exercise any of these rights, users can contact us through:
                 </p>
                 <div className="space-y-2 text-sm">
                   <p className="text-gray-700">
-                    <strong className="text-green-700">Correo electrónico:</strong>{" "}
-                    <a href="mailto:hola@nomasbullying.es" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
-                      hola@nomasbullying.es
+                    <strong className="text-green-700">Email:</strong>{" "}
+                    <a href="mailto:hello@nomorebullying.com" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                      hello@nomorebullying.com
                     </a>
                   </p>
                   <p className="text-gray-700">
-                    <strong className="text-green-700">Plazo de respuesta:</strong> Máximo 30 días naturales desde la recepción de la solicitud.
+                    <strong className="text-green-700">Response time:</strong> Maximum 30 calendar days from receipt of the request.
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* 7. Retención de datos */}
+          {/* 7. Data retention */}
           <section>
             <h2 className="text-2xl font-semibold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
-              7. PERÍODOS DE RETENCIÓN
+              7. RETENTION PERIODS
             </h2>
 
             <div className="overflow-x-auto">
@@ -463,41 +463,41 @@ export default function PrivacyPageClient() {
                   <thead>
                     <tr className="bg-gradient-to-r from-green-50 to-blue-50 border-b border-gray-200">
                       <th className="p-4 text-left font-semibold text-gray-900 rounded-tl-xl">
-                        Categoría de Datos
+                        Data Category
                       </th>
                       <th className="p-4 text-left font-semibold text-gray-900">
-                        Período de Retención
+                        Retention Period
                       </th>
                       <th className="p-4 text-left font-semibold text-gray-900 rounded-tr-xl">
-                        Base Legal
+                        Legal Basis
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                      <td className="p-4 text-gray-700 font-medium">Conversaciones generales</td>
-                      <td className="p-4 text-gray-600">6 meses</td>
-                      <td className="p-4 text-gray-600">Mejora del servicio</td>
+                      <td className="p-4 text-gray-700 font-medium">General conversations</td>
+                      <td className="p-4 text-gray-600">6 months</td>
+                      <td className="p-4 text-gray-600">Service improvement</td>
                     </tr>
                     <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                      <td className="p-4 text-gray-700 font-medium">Conversaciones con menores</td>
-                      <td className="p-4 text-gray-600">90 días</td>
-                      <td className="p-4 text-gray-600">Protección especial</td>
+                      <td className="p-4 text-gray-700 font-medium">Conversations with minors</td>
+                      <td className="p-4 text-gray-600">90 days</td>
+                      <td className="p-4 text-gray-600">Special protection</td>
                     </tr>
                     <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                      <td className="p-4 text-gray-700 font-medium">Datos técnicos</td>
-                      <td className="p-4 text-gray-600">12 meses</td>
-                      <td className="p-4 text-gray-600">Seguridad y prevención</td>
+                      <td className="p-4 text-gray-700 font-medium">Technical data</td>
+                      <td className="p-4 text-gray-600">12 months</td>
+                      <td className="p-4 text-gray-600">Security and prevention</td>
                     </tr>
                     <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                      <td className="p-4 text-gray-700 font-medium">Logs de seguridad</td>
-                      <td className="p-4 text-gray-600">24 meses</td>
-                      <td className="p-4 text-gray-600">Cumplimiento legal</td>
+                      <td className="p-4 text-gray-700 font-medium">Security logs</td>
+                      <td className="p-4 text-gray-600">24 months</td>
+                      <td className="p-4 text-gray-600">Legal compliance</td>
                     </tr>
                     <tr className="hover:bg-gray-50 transition-colors">
-                      <td className="p-4 text-gray-700 font-medium">Datos anonimizados</td>
-                      <td className="p-4 text-gray-600">Indefinido</td>
-                      <td className="p-4 text-gray-600">Investigación</td>
+                      <td className="p-4 text-gray-700 font-medium">Anonymized data</td>
+                      <td className="p-4 text-gray-600">Indefinite</td>
+                      <td className="p-4 text-gray-600">Research</td>
                     </tr>
                   </tbody>
                 </table>
@@ -505,55 +505,55 @@ export default function PrivacyPageClient() {
             </div>
           </section>
 
-          {/* 8. Contacto */}
+          {/* 8. Contact */}
           <section>
             <h2 className="text-2xl font-semibold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
-              8. CONTACTO Y CONSULTAS
+              8. CONTACT AND INQUIRIES
             </h2>
 
             <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
               <p className="text-gray-700 mb-4">
-                Para cualquier consulta relacionada con esta Política de Privacidad o el tratamiento de sus datos personales, puede contactarnos:
+                For any inquiries related to this Privacy Policy or the processing of your personal data, you can contact us:
               </p>
               
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white rounded-lg p-4 border border-green-200">
-                  <h4 className="font-semibold text-green-700 mb-2">Contacto General</h4>
+                  <h4 className="font-semibold text-green-700 mb-2">General Contact</h4>
                   <p className="text-sm text-gray-600 mb-2">
-                    <strong>Email:</strong> <a href="mailto:hola@nomasbullying.es" className="text-blue-600 hover:underline">hola@nomasbullying.es</a>
+                    <strong>Email:</strong> <a href="mailto:hello@nomorebullying.com" className="text-blue-600 hover:underline">hello@nomorebullying.com</a>
                   </p>
                   <p className="text-sm text-gray-600">
-                    <strong>Respuesta:</strong> Máximo 48 horas
+                    <strong>Response:</strong> Maximum 48 hours
                   </p>
                 </div>
                 
                 <div className="bg-white rounded-lg p-4 border border-blue-200">
-                  <h4 className="font-semibold text-blue-700 mb-2">Delegado de Protección de Datos</h4>
+                  <h4 className="font-semibold text-blue-700 mb-2">Data Protection Officer</h4>
                   <p className="text-sm text-gray-600 mb-2">
-                    <strong>Email:</strong> <a href="mailto:dpo@nomasbullying.es" className="text-blue-600 hover:underline">dpo@nomasbullying.es</a>
+                    <strong>Email:</strong> <a href="mailto:dpo@nomorebullying.com" className="text-blue-600 hover:underline">dpo@nomorebullying.com</a>
                   </p>
                   <p className="text-sm text-gray-600">
-                    <strong>Respuesta:</strong> Máximo 30 días
+                    <strong>Response:</strong> Maximum 30 days
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Footer legal */}
+          {/* Legal footer */}
           <footer className="border-t border-gray-200 pt-8 text-center">
             <p className="text-sm text-gray-500">
-              © 2025 NoMasBullying. Todos los derechos reservados. | 
+              © 2025 NoMoreBullying. All rights reserved. | 
               <span className="mx-2">•</span>
-              <a href="/politica-privacidad" className="text-blue-600 hover:underline">Política de Privacidad</a>
+              <a href="/privacy-policy" className="text-blue-600 hover:underline">Privacy Policy</a>
               <span className="mx-2">•</span>
-              <a href="/contacto" className="text-blue-600 hover:underline">Contacto</a>
+              <a href="/contact" className="text-blue-600 hover:underline">Contact</a>
             </p>
           </footer>
         </div>
       </div>
 
-      {/* 🎨 ESTILOS CSS PARA ANIMACIONES */}
+      {/* 🎨 CSS STYLES FOR ANIMATIONS */}
       <style jsx>{`
         @keyframes twinkle {
           0%, 100% { opacity: 0.3; transform: scale(1); }
