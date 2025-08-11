@@ -10,20 +10,20 @@ import { Inter } from "next/font/google"
 const inter = Inter({ subsets: ["latin"] })
 
 export default function ConsejosPageClient() {
-  const [activeSection, setActiveSection] = useState("dibujos")
+  const [activeSection, setActiveSection] = useState("drawings")
   const router = useRouter()
 
   const sections = [
-    { id: "dibujos", title: "Entendiendo los Dibujos", icon: BookOpen },
-    { id: "conversaciones", title: "Conversaciones Difíciles", icon: MessageCircle },
-    { id: "senales", title: "Señales de Alerta", icon: AlertTriangle },
-    { id: "prevencion", title: "Prevención Activa", icon: Shield },
-    { id: "emergencia", title: "Recursos de Emergencia", icon: Phone },
+    { id: "drawings", title: "Understanding Drawings", icon: BookOpen },
+    { id: "conversations", title: "Difficult Conversations", icon: MessageCircle },
+    { id: "warning-signs", title: "Warning Signs", icon: AlertTriangle },
+    { id: "prevention", title: "Active Prevention", icon: Shield },
+    { id: "emergency", title: "Emergency Resources", icon: Phone },
   ]
 
   return (
     <div className={`min-h-screen bg-white ${inter.className}`}>
-      {/* Header mejorado con coherencia visual */}
+      {/* Header improved with visual coherence */}
       <header className="bg-gradient-to-r from-green-50 to-blue-50 backdrop-blur-md border-b border-green-200/30 sticky top-0 z-40 shadow-sm">
         <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
           <button
@@ -31,33 +31,33 @@ export default function ConsejosPageClient() {
             className="flex items-center gap-2 px-3 py-2 text-green-600 hover:text-green-700 hover:bg-green-50 rounded-lg transition-all duration-300 group border border-green-100 hover:border-green-200"
           >
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform duration-200" />
-            <span className="font-medium text-sm">Volver</span>
+            <span className="font-medium text-sm">Back</span>
           </button>
-          <h1 className="text-xl font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent hidden md:block">Consejos para Padres</h1>
+          <h1 className="text-xl font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent hidden md:block">Parent Advice</h1>
           <div className="w-24"></div> {/* Spacer */}
         </div>
       </header>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-        {/* Hero Section con imagen 3D tipo Pixar */}
+        {/* Hero Section with 3D Pixar-style image */}
         <div className="bg-white rounded-2xl p-8 mb-8 relative overflow-hidden border border-green-200 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <Heart className="text-green-600" size={24} />
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Protegiendo lo que más amas</h2>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Protecting What You Love Most</h2>
               </div>
               <p className="text-gray-600 leading-relaxed text-lg">
-                Como padre, tu instinto protector es tu mayor fortaleza. Aquí encontrarás herramientas prácticas, 
-                basadas en evidencia científica, para detectar, prevenir y actuar ante situaciones de bullying. 
-                <strong className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent"> Cada niño merece crecer en un entorno seguro y feliz.</strong>
+                As a parent, your protective instinct is your greatest strength. Here you'll find practical tools, 
+                based on scientific evidence, to detect, prevent and act in bullying situations. 
+                <strong className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent"> Every child deserves to grow up in a safe and happy environment.</strong>
               </p>
             </div>
             <div className="flex justify-center">
-              {/* Espacio para imagen 3D tipo Pixar - Super Padres Protectores */}
+              {/* Space for 3D Pixar-style image - Super Protective Parents */}
               <img 
                 src="/images/super_papis.webp" 
-                alt="Super Padres protectores estilo 3D" 
+                alt="Super protective parents 3D style" 
                 className="w-80 h-80 object-contain"
               />
             </div>
@@ -65,7 +65,7 @@ export default function ConsejosPageClient() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Sidebar Navigation mejorado */}
+          {/* Improved Sidebar Navigation */}
           <aside className="lg:col-span-1">
             <nav className="space-y-2">
               {sections.map((section) => {
@@ -87,12 +87,12 @@ export default function ConsejosPageClient() {
               })}
             </nav>
 
-            {/* Estadística motivacional */}
+            {/* Motivational statistic */}
             <div className="mt-8 bg-white p-4 rounded-xl border border-green-200 shadow-sm relative z-10">
               <div className="text-center">
                 <div className="text-2xl font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">95%</div>
                 <div className="text-xs text-gray-500 mt-1">
-                  de los casos se resuelven con detección temprana
+                  of cases are resolved with early detection
                 </div>
               </div>
             </div>
@@ -100,11 +100,11 @@ export default function ConsejosPageClient() {
 
           {/* Main Content */}
           <main className="lg:col-span-3 bg-white p-8 rounded-2xl border border-green-200 shadow-sm relative z-0">
-            {activeSection === "dibujos" && <DibujoSection />}
-            {activeSection === "conversaciones" && <ConversacionesSection />}
-            {activeSection === "senales" && <SenalesSection />}
-            {activeSection === "prevencion" && <PrevencionSection />}
-            {activeSection === "emergencia" && <EmergenciaSection />}
+            {activeSection === "drawings" && <DibujoSection />}
+            {activeSection === "conversations" && <ConversacionesSection />}
+            {activeSection === "warning-signs" && <SenalesSection />}
+            {activeSection === "prevention" && <PrevencionSection />}
+            {activeSection === "emergency" && <EmergenciaSection />}
           </main>
         </div>
       </div>
@@ -143,43 +143,43 @@ function TipCard({ icon, title, children }: { icon: React.ReactNode; title: stri
 function DibujoSection() {
   return (
     <SectionWrapper
-      title="Entendiendo los Dibujos de tu Hijo"
-      subtitle="Los dibujos son una ventana al mundo emocional de los niños. Aquí te enseñamos qué observar y cómo interpretarlo de forma responsable."
+      title="Understanding Your Child's Drawings"
+      subtitle="Drawings are a window into children's emotional world. Here we teach you what to observe and how to interpret it responsibly."
     >
       <Card>
         <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
           <Star className="text-yellow-500" size={20} />
-          La Regla de Oro Inquebrantable
+          The Unbreakable Golden Rule
         </h3>
         <ul className="space-y-3 text-gray-600">
           <li className="flex items-start gap-3">
             <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
             <div>
-              <strong>Un dibujo NO es una sentencia.</strong> Es una fotografía emocional de un momento concreto.
+              <strong>A drawing is NOT a diagnosis.</strong> It's an emotional snapshot of a specific moment.
             </div>
           </li>
           <li className="flex items-start gap-3">
             <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
             <div>
-              <strong>NUNCA interpretes un signo aislado.</strong> Busca patrones y cúmulos de señales.
+              <strong>NEVER interpret an isolated sign.</strong> Look for patterns and clusters of signals.
             </div>
           </li>
           <li className="flex items-start gap-3">
             <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
             <div>
-              <strong>El contexto lo es TODO.</strong> ¿Qué pasaba en la vida del niño cuando hizo el dibujo?
+              <strong>Context is EVERYTHING.</strong> What was happening in the child's life when they made the drawing?
             </div>
           </li>
         </ul>
       </Card>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-800 mb-4">🎨 El Uso del Color</h3>
-        {/* Imagen 3D de niño dibujando estilo Pixar */}
+        <h3 className="text-xl font-bold text-gray-800 mb-4">🎨 Use of Color</h3>
+        {/* 3D image of child drawing Pixar style */}
         <div className="flex justify-center mb-6">
           <img 
             src="/images/peque_dibujo.webp" 
-            alt="Niño dibujando estilo 3D Pixar" 
+            alt="Child drawing Pixar 3D style" 
             className="w-64 h-48 object-contain"
           />
         </div>
@@ -187,40 +187,40 @@ function DibujoSection() {
           <Card>
             <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
               <Check className="text-green-500" size={18} />
-              Signos Positivos/Neutros
+              Positive/Neutral Signs
             </h4>
             <ul className="space-y-2 text-gray-600">
               <li className="flex items-start gap-2">
                 <div className="w-3 h-3 bg-yellow-400 rounded-full mt-1 flex-shrink-0"></div>
-                <div><strong>Muchos colores vivos:</strong> Alegría, energía, curiosidad</div>
+                <div><strong>Many bright colors:</strong> Joy, energy, curiosity</div>
               </li>
               <li className="flex items-start gap-2">
                 <div className="w-3 h-3 bg-green-400 rounded-full mt-1 flex-shrink-0"></div>
-                <div><strong>Colores realistas:</strong> Sol amarillo, hierba verde</div>
+                <div><strong>Realistic colors:</strong> Yellow sun, green grass</div>
               </li>
               <li className="flex items-start gap-2">
                 <div className="w-3 h-3 bg-purple-400 rounded-full mt-1 flex-shrink-0"></div>
-                <div><strong>Colores favoritos:</strong> Es normal tener fases</div>
+                <div><strong>Favorite colors:</strong> It's normal to have phases</div>
               </li>
             </ul>
           </Card>
           <Card>
             <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
               <AlertCircle className="text-orange-500" size={18} />
-              Posibles Señales de Alerta
+              Possible Warning Signs
             </h4>
             <ul className="space-y-2 text-gray-600">
               <li className="flex items-start gap-2">
                 <div className="w-3 h-3 bg-gray-600 rounded-full mt-1 flex-shrink-0"></div>
-                <div><strong>Solo colores oscuros:</strong> Tristeza, miedo, ansiedad</div>
+                <div><strong>Only dark colors:</strong> Sadness, fear, anxiety</div>
               </li>
               <li className="flex items-start gap-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full mt-1 flex-shrink-0"></div>
-                <div><strong>Solo rojo:</strong> Agresividad, ira, tensión</div>
+                <div><strong>Only red:</strong> Aggression, anger, tension</div>
               </li>
               <li className="flex items-start gap-2">
                 <div className="w-3 h-3 bg-gray-300 rounded-full mt-1 flex-shrink-0"></div>
-                <div><strong>Sin color:</strong> Apatía, miedo a expresar</div>
+                <div><strong>No color:</strong> Apathy, fear of expression</div>
               </li>
             </ul>
           </Card>
@@ -228,7 +228,7 @@ function DibujoSection() {
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-800 mb-4">👤 La Figura Humana</h3>
+        <h3 className="text-xl font-bold text-gray-800 mb-4">👤 Human Figure</h3>
         <Card>
           <div className="space-y-6">
             <div className="flex items-start gap-4">
@@ -236,9 +236,9 @@ function DibujoSection() {
                 <span className="text-green-600 font-bold text-sm">👄</span>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-800">La Boca</h4>
+                <h4 className="font-semibold text-gray-800">The Mouth</h4>
                 <p className="text-gray-600 mt-1">
-                  <strong>Ausente o línea recta:</strong> Señal clásica de no poder comunicar angustia o sentir que "no tiene voz".
+                  <strong>Absent or straight line:</strong> Classic sign of not being able to communicate distress or feeling "voiceless".
                 </p>
               </div>
             </div>
@@ -248,9 +248,9 @@ function DibujoSection() {
                 <span className="text-green-600 font-bold text-sm">🤲</span>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-800">Brazos y Manos</h4>
+                <h4 className="font-semibold text-gray-800">Arms and Hands</h4>
                 <p className="text-gray-600 mt-1">
-                  <strong>Pegados al cuerpo o sin manos:</strong> Sentirse impotente, sin capacidad de defenderse.
+                  <strong>Stuck to body or no hands:</strong> Feeling powerless, unable to defend themselves.
                 </p>
               </div>
             </div>
@@ -260,9 +260,9 @@ function DibujoSection() {
                 <span className="text-green-600 font-bold text-sm">👀</span>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-800">Los Ojos</h4>
+                <h4 className="font-semibold text-gray-800">The Eyes</h4>
                 <p className="text-gray-600 mt-1">
-                  <strong>Muy pequeños o cerrados:</strong> No querer ver algo que está pasando.
+                  <strong>Very small or closed:</strong> Not wanting to see something that's happening.
                 </p>
               </div>
             </div>
@@ -272,11 +272,11 @@ function DibujoSection() {
 
       <TipCard 
         icon={<Lightbulb className="text-yellow-500" size={20} />}
-        title="Consejo de Experto"
+        title="Expert Tip"
       >
         <p className="text-green-700 text-sm">
-          <strong>Técnica del "Cuéntame más":</strong> Cuando veas algo que te llame la atención, 
-          simplemente di "¡Qué interesante! Cuéntame más sobre esto..." y deja que el niño guíe la conversación.
+          <strong>"Tell Me More" Technique:</strong> When you see something that catches your attention, 
+          simply say "How interesting! Tell me more about this..." and let the child guide the conversation.
         </p>
       </TipCard>
     </SectionWrapper>
@@ -286,14 +286,14 @@ function DibujoSection() {
 function ConversacionesSection() {
   return (
     <SectionWrapper
-      title="Cómo Iniciar Conversaciones Difíciles"
-      subtitle="La clave no está en interrogar, sino en crear un espacio seguro donde tu hijo se sienta cómodo compartiendo."
+      title="How to Start Difficult Conversations"
+      subtitle="The key isn't interrogating, but creating a safe space where your child feels comfortable sharing."
     >
-      {/* Imagen 3D de familia conversando estilo Pixar */}
+      {/* 3D image of family talking Pixar style */}
       <div className="flex justify-center mb-6">
         <img 
           src="/images/papis_charla.webp" 
-          alt="Familia conversando estilo 3D Pixar" 
+          alt="Family talking Pixar 3D style" 
           className="w-80 h-60 object-contain"
         />
       </div>
@@ -301,7 +301,7 @@ function ConversacionesSection() {
       <Card>
         <h3 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
           <Target className="text-green-500" size={20} />
-          El Protocolo de 3 Pasos
+          The 3-Step Protocol
         </h3>
         <div className="space-y-6">
           <div className="flex gap-4 items-start">
@@ -309,10 +309,10 @@ function ConversacionesSection() {
               1
             </div>
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">Observar sin Juzgar</h4>
-              <p className="text-gray-600">Simplemente mira el dibujo. No hagas interpretaciones inmediatas.</p>
+              <h4 className="font-semibold text-gray-800 mb-2">Observe Without Judging</h4>
+              <p className="text-gray-600">Simply look at the drawing. Don't make immediate interpretations.</p>
               <div className="mt-2 p-3 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg text-green-700 text-sm">
-                <strong>Tiempo recomendado:</strong> 30 segundos de observación silenciosa
+                <strong>Recommended time:</strong> 30 seconds of silent observation
               </div>
             </div>
           </div>
@@ -321,10 +321,10 @@ function ConversacionesSection() {
               2
             </div>
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">Crear un Espacio Seguro</h4>
-              <p className="text-gray-600">Momento tranquilo: merendando, antes de dormir, paseando.</p>
+              <h4 className="font-semibold text-gray-800 mb-2">Create a Safe Space</h4>
+              <p className="text-gray-600">Quiet moment: snack time, before bed, walking.</p>
               <div className="mt-2 p-3 bg-green-50 rounded-lg text-green-700 text-sm">
-                <strong>Lugares ideales:</strong> Cocina, coche, parque - lugares sin distracciones
+                <strong>Ideal places:</strong> Kitchen, car, park - places without distractions
               </div>
             </div>
           </div>
@@ -333,10 +333,10 @@ function ConversacionesSection() {
               3
             </div>
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">Preguntar con Curiosidad</h4>
-              <p className="text-gray-600">Nunca interpretes en voz alta. Deja que el niño te cuente la historia.</p>
+              <h4 className="font-semibold text-gray-800 mb-2">Ask with Curiosity</h4>
+              <p className="text-gray-600">Never interpret out loud. Let the child tell you the story.</p>
               <div className="mt-2 p-3 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg text-green-700 text-sm">
-                <strong>Regla de oro:</strong> Una pregunta abierta por cada 3 comentarios positivos
+                <strong>Golden rule:</strong> One open question for every 3 positive comments
               </div>
             </div>
           </div>
@@ -346,40 +346,40 @@ function ConversacionesSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card>
           <h3 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
-            <Check className="text-green-500" size={20} /> Frases que Funcionan
+            <Check className="text-green-500" size={20} /> Phrases That Work
           </h3>
           <ul className="space-y-3 text-gray-600 text-sm">
-            <li className="p-2 bg-green-50 rounded-lg">"He visto este dibujo tan chulo que has hecho. ¿Me lo cuentas?"</li>
-            <li className="p-2 bg-green-50 rounded-lg">"¿Quién es este niño de aquí? Parece que está pensando mucho..."</li>
-            <li className="p-2 bg-green-50 rounded-lg">"¡Qué casa más grande! ¿Quién vive aquí?"</li>
-            <li className="p-2 bg-green-50 rounded-lg">"Me gusta mucho este color que has usado aquí..."</li>
+            <li className="p-2 bg-green-50 rounded-lg">"I saw this cool drawing you made. Can you tell me about it?"</li>
+            <li className="p-2 bg-green-50 rounded-lg">"Who's this kid here? Looks like they're thinking hard..."</li>
+            <li className="p-2 bg-green-50 rounded-lg">"What a big house! Who lives here?"</li>
+            <li className="p-2 bg-green-50 rounded-lg">"I really like this color you used here..."</li>
           </ul>
         </Card>
         <Card>
           <h3 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
-            <X className="text-red-500" size={20} /> Evita Estas Frases
+            <X className="text-red-500" size={20} /> Avoid These Phrases
           </h3>
           <ul className="space-y-3 text-gray-600 text-sm">
-            <li className="p-2 bg-red-50 rounded-lg">"¿Por qué has pintado a ese niño sin boca?"</li>
-            <li className="p-2 bg-red-50 rounded-lg">"¿Por qué estás tan solo en el dibujo?"</li>
-            <li className="p-2 bg-red-50 rounded-lg">"Este dibujo está muy triste..."</li>
-            <li className="p-2 bg-red-50 rounded-lg">"¿Te pasa algo malo?"</li>
+            <li className="p-2 bg-red-50 rounded-lg">"Why did you draw that kid without a mouth?"</li>
+            <li className="p-2 bg-red-50 rounded-lg">"Why are you so alone in the drawing?"</li>
+            <li className="p-2 bg-red-50 rounded-lg">"This drawing looks very sad..."</li>
+            <li className="p-2 bg-red-50 rounded-lg">"Is something wrong?"</li>
           </ul>
         </Card>
       </div>
 
       <TipCard 
         icon={<Clock className="text-green-500" size={20} />}
-        title="Timing Perfecto"
+        title="Perfect Timing"
       >
         <p className="text-green-700 text-sm mb-3">
-          <strong>Los mejores momentos para hablar:</strong>
+          <strong>Best moments to talk:</strong>
         </p>
         <ul className="text-green-700 text-sm space-y-1">
-          <li>• Durante actividades rutinarias (cocinar, ordenar)</li>
-          <li>• En el coche (sin contacto visual directo)</li>
-          <li>• Antes de dormir (momento de calma)</li>
-          <li>• Paseando (movimiento relaja)</li>
+          <li>• During routine activities (cooking, tidying up)</li>
+          <li>• In the car (no direct eye contact)</li>
+          <li>• Before bedtime (calm moment)</li>
+          <li>• While walking (movement relaxes)</li>
         </ul>
       </TipCard>
     </SectionWrapper>
@@ -389,88 +389,88 @@ function ConversacionesSection() {
 function SenalesSection() {
   return (
     <SectionWrapper
-      title="Señales de Alerta Temprana"
-      subtitle="Aprende a identificar los primeros indicios de bullying antes de que se conviertan en un problema mayor."
+      title="Early Warning Signs"
+      subtitle="Learn to identify the first signs of bullying before they become a bigger problem."
     >
-      {/* Imagen 3D de niño preocupado estilo Pixar */}
+      {/* 3D image of worried child Pixar style */}
       <div className="flex justify-center mb-6">
         <img 
           src="/images/niño_sentado.webp" 
-          alt="Niño preocupado estilo 3D Pixar" 
+          alt="Worried child Pixar 3D style" 
           className="w-64 h-64 object-contain"
         />
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-800 mb-4">🚦 Sistema de Semáforo</h3>
-        <p className="text-gray-600 mb-6">Una forma visual de evaluar el nivel de riesgo basándose en múltiples señales.</p>
+        <h3 className="text-xl font-bold text-gray-800 mb-4">🚦 Traffic Light System</h3>
+        <p className="text-gray-600 mb-6">A visual way to assess risk level based on multiple signs.</p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-4 h-4 bg-green-500 rounded-full"></div>
-              <h4 className="font-bold text-gray-800">Verde - Normal</h4>
+              <h4 className="font-bold text-gray-800">Green - Normal</h4>
             </div>
             <ul className="space-y-2 text-gray-600 text-sm">
               <li className="flex items-center gap-2">
                 <Check size={14} className="text-green-500 flex-shrink-0" />
-                Dibujos variados en temas
+                Varied drawing themes
               </li>
               <li className="flex items-center gap-2">
                 <Check size={14} className="text-green-500 flex-shrink-0" />
-                Habla de amigos y actividades
+                Talks about friends and activities
               </li>
               <li className="flex items-center gap-2">
                 <Check size={14} className="text-green-500 flex-shrink-0" />
-                Duerme y come normalmente
+                Sleeps and eats normally
               </li>
             </ul>
           </Card>
           <Card>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-4 h-4 bg-yellow-500 rounded-full"></div>
-              <h4 className="font-bold text-gray-800">Amarillo - Observar</h4>
+              <h4 className="font-bold text-gray-800">Yellow - Observe</h4>
             </div>
             <ul className="space-y-2 text-gray-600 text-sm">
               <li className="flex items-center gap-2">
                 <AlertCircle size={14} className="text-yellow-500 flex-shrink-0" />
-                Cambios en patrones de dibujo
+                Changes in drawing patterns
               </li>
               <li className="flex items-center gap-2">
                 <AlertCircle size={14} className="text-yellow-500 flex-shrink-0" />
-                Menos ganas de ir al colegio
+                Less eager to go to school
               </li>
               <li className="flex items-center gap-2">
                 <AlertCircle size={14} className="text-yellow-500 flex-shrink-0" />
-                Menciona menos a los amigos
+                Mentions friends less
               </li>
               <li className="flex items-center gap-2">
                 <AlertCircle size={14} className="text-yellow-500 flex-shrink-0" />
-                Pequeños cambios de apetito
+                Small appetite changes
               </li>
             </ul>
           </Card>
           <Card>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-4 h-4 bg-red-500 rounded-full"></div>
-              <h4 className="font-bold text-gray-800">Rojo - Actuar</h4>
+              <h4 className="font-bold text-gray-800">Red - Act</h4>
             </div>
             <ul className="space-y-2 text-gray-600 text-sm">
               <li className="flex items-center gap-2">
                 <X size={14} className="text-red-500 flex-shrink-0" />
-                Rechazo total al colegio
+                Total school refusal
               </li>
               <li className="flex items-center gap-2">
                 <X size={14} className="text-red-500 flex-shrink-0" />
-                Pesadillas frecuentes
+                Frequent nightmares
               </li>
               <li className="flex items-center gap-2">
                 <X size={14} className="text-red-500 flex-shrink-0" />
-                Aislamiento social completo
+                Complete social isolation
               </li>
               <li className="flex items-center gap-2">
                 <X size={14} className="text-red-500 flex-shrink-0" />
-                Cambios drásticos
+                Drastic changes
               </li>
             </ul>
           </Card>
@@ -480,32 +480,32 @@ function SenalesSection() {
       <Card>
         <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
           <Users className="text-green-500" size={20} />
-          Cuándo Buscar Ayuda Profesional
+          When to Seek Professional Help
         </h3>
         <ul className="space-y-3 text-gray-600">
           <li className="flex items-start gap-3">
             <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-            <div>Si observas 3 o más señales rojas durante más de 2 semanas.</div>
+            <div>If you observe 3 or more red signs for more than 2 weeks.</div>
           </li>
           <li className="flex items-start gap-3">
             <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-            <div>Si tu instinto de padre te dice que algo no está bien.</div>
+            <div>If your parental instinct tells you something isn't right.</div>
           </li>
           <li className="flex items-start gap-3">
             <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-            <div>Si el niño menciona directamente situaciones de acoso.</div>
+            <div>If the child directly mentions bullying situations.</div>
           </li>
           <li className="flex items-start gap-3">
             <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-            <div>Si hay cambios drásticos y repentinos en su comportamiento.</div>
+            <div>If there are drastic and sudden behavior changes.</div>
           </li>
         </ul>
         <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border border-green-200">
           <div className="flex items-start gap-3">
             <Heart className="text-green-600 flex-shrink-0 mt-0.5" size={18} />
             <p className="text-green-800 text-sm">
-              <strong>Recuerda:</strong> Buscar ayuda no significa que seas mal padre. Significa que eres un padre
-              responsable que quiere lo mejor para su hijo.
+              <strong>Remember:</strong> Seeking help doesn't mean you're a bad parent. It means you're a
+              responsible parent who wants the best for their child.
             </p>
           </div>
         </div>
@@ -513,20 +513,20 @@ function SenalesSection() {
 
       <TipCard 
         icon={<AlertTriangle className="text-orange-500" size={20} />}
-        title="Señales Físicas que NO Debes Ignorar"
+        title="Physical Signs You Should NOT Ignore"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-orange-700 text-sm">
           <ul className="space-y-2">
-            <li>• Moratones inexplicables</li>
-            <li>• Ropa rota o dañada</li>
-            <li>• Pérdida de objetos personales</li>
-            <li>• Dolores de cabeza frecuentes</li>
+            <li>• Unexplained bruises</li>
+            <li>• Torn or damaged clothing</li>
+            <li>• Loss of personal items</li>
+            <li>• Frequent headaches</li>
           </ul>
           <ul className="space-y-2">
-            <li>• Problemas para dormir</li>
-            <li>• Pérdida de apetito</li>
-            <li>• Enuresis (volver a orinarse)</li>
-            <li>• Tics nerviosos nuevos</li>
+            <li>• Sleeping problems</li>
+            <li>• Loss of appetite</li>
+            <li>• Bedwetting (regression)</li>
+            <li>• New nervous tics</li>
           </ul>
         </div>
       </TipCard>
@@ -537,14 +537,14 @@ function SenalesSection() {
 function PrevencionSection() {
   return (
     <SectionWrapper
-      title="Prevención Activa"
-      subtitle="La mejor defensa es una buena prevención. Construye la autoestima y las habilidades sociales de tu hijo."
+      title="Active Prevention"
+      subtitle="The best defense is good prevention. Build your child's self-esteem and social skills."
     >
-      {/* Imagen 3D de superhéroes protectores estilo Pixar */}
+      {/* 3D image of protective superheroes Pixar style */}
       <div className="flex justify-center mb-6">
         <img 
           src="/images/equipo_bueno2.webp" 
-          alt="Superhéroes protectores estilo 3D Pixar" 
+          alt="Protective superheroes Pixar 3D style" 
           className="w-80 h-60 object-contain"
         />
       </div>
@@ -553,24 +553,24 @@ function PrevencionSection() {
         <Card>
           <h3 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
             <Shield className="text-green-500" size={20} />
-            Fortaleciendo la Autoestima
+            Building Self-Esteem
           </h3>
           <ul className="space-y-3 text-gray-600 text-sm">
             <li className="flex items-start gap-3">
               <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div><strong>Celebra sus logros:</strong> Por pequeños que sean, reconoce sus esfuerzos</div>
+              <div><strong>Celebrate achievements:</strong> No matter how small, recognize their efforts</div>
             </li>
             <li className="flex items-start gap-3">
               <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div><strong>Escucha activamente:</strong> Demuestra que sus opiniones importan</div>
+              <div><strong>Listen actively:</strong> Show that their opinions matter</div>
             </li>
             <li className="flex items-start gap-3">
               <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div><strong>Fomenta sus talentos:</strong> Ayúdale a descubrir en qué es bueno</div>
+              <div><strong>Foster their talents:</strong> Help them discover what they're good at</div>
             </li>
             <li className="flex items-start gap-3">
               <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div><strong>Enseña asertividad:</strong> "Está bien decir NO cuando algo no te gusta"</div>
+              <div><strong>Teach assertiveness:</strong> "It's okay to say NO when you don't like something"</div>
             </li>
           </ul>
         </Card>
@@ -578,24 +578,24 @@ function PrevencionSection() {
         <Card>
           <h3 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
             <Users className="text-green-500" size={20} />
-            Habilidades Sociales
+            Social Skills
           </h3>
           <ul className="space-y-3 text-gray-600 text-sm">
             <li className="flex items-start gap-3">
               <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div><strong>Role-playing:</strong> Practica situaciones sociales en casa</div>
+              <div><strong>Role-playing:</strong> Practice social situations at home</div>
             </li>
             <li className="flex items-start gap-3">
               <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div><strong>Empatía:</strong> "¿Cómo crees que se sintió tu amigo cuando...?"</div>
+              <div><strong>Empathy:</strong> "How do you think your friend felt when...?"</div>
             </li>
             <li className="flex items-start gap-3">
               <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div><strong>Resolución de conflictos:</strong> Enseña alternativas a la violencia</div>
+              <div><strong>Conflict resolution:</strong> Teach alternatives to violence</div>
             </li>
             <li className="flex items-start gap-3">
               <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div><strong>Comunicación:</strong> "Usa tus palabras para expresar cómo te sientes"</div>
+              <div><strong>Communication:</strong> "Use your words to express how you feel"</div>
             </li>
           </ul>
         </Card>
@@ -604,28 +604,28 @@ function PrevencionSection() {
       <Card>
         <h3 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
           <Lightbulb className="text-yellow-500" size={20} />
-          Estrategias Prácticas Anti-Bullying
+          Practical Anti-Bullying Strategies
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
-            <h4 className="font-semibold text-gray-800 mb-2">La Técnica del "Disco Rayado"</h4>
-            <p className="text-gray-600 text-sm mb-2">Enseña a tu hijo a repetir la misma frase calmadamente:</p>
+            <h4 className="font-semibold text-gray-800 mb-2">The "Broken Record" Technique</h4>
+            <p className="text-gray-600 text-sm mb-2">Teach your child to repeat the same phrase calmly:</p>
             <div className="p-3 bg-yellow-50 rounded-lg text-yellow-800 text-sm">
-              "No me gusta que me hables así" (repetir hasta que se aburran)
+              "I don't like when you talk to me like that" (repeat until they get bored)
             </div>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-800 mb-2">El "Banco de Respuestas"</h4>
-            <p className="text-gray-600 text-sm mb-2">Frases preparadas para diferentes situaciones:</p>
+            <h4 className="font-semibold text-gray-800 mb-2">The "Response Bank"</h4>
+            <p className="text-gray-600 text-sm mb-2">Prepared phrases for different situations:</p>
             <div className="p-3 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg text-green-800 text-sm">
-              "Eso no es verdad y lo sabes" / "¿Por qué dices eso?"
+              "That's not true and you know it" / "Why are you saying that?"
             </div>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-800 mb-2">La "Red de Apoyo"</h4>
-            <p className="text-gray-600 text-sm mb-2">Identifica adultos de confianza en el colegio:</p>
+            <h4 className="font-semibold text-gray-800 mb-2">The "Support Network"</h4>
+            <p className="text-gray-600 text-sm mb-2">Identify trusted adults at school:</p>
             <div className="p-3 bg-green-50 rounded-lg text-green-800 text-sm">
-              Profesor, conserje, psicólogo escolar
+              Teacher, janitor, school psychologist
             </div>
           </div>
         </div>
@@ -633,13 +633,13 @@ function PrevencionSection() {
 
       <TipCard 
         icon={<Target className="text-purple-500" size={20} />}
-        title="Plan de Acción Familiar"
+        title="Family Action Plan"
       >
         <div className="text-green-700 text-sm space-y-3">
-          <p><strong>Reunión familiar semanal:</strong> 15 minutos para hablar de cómo ha ido la semana en el colegio.</p>
-          <p><strong>Código secreto:</strong> Una palabra que tu hijo puede usar para pedirte ayuda sin que otros se enteren.</p>
-          <p><strong>Simulacros de situaciones:</strong> Practica qué hacer si alguien le molesta.</p>
-          <p><strong>Refuerzo positivo:</strong> Celebra cuando use las estrategias que le has enseñado.</p>
+          <p><strong>Weekly family meeting:</strong> 15 minutes to talk about how the week went at school.</p>
+          <p><strong>Secret code:</strong> A word your child can use to ask for help without others knowing.</p>
+          <p><strong>Situation drills:</strong> Practice what to do if someone bothers them.</p>
+          <p><strong>Positive reinforcement:</strong> Celebrate when they use the strategies you've taught them.</p>
         </div>
       </TipCard>
     </SectionWrapper>
@@ -649,51 +649,51 @@ function PrevencionSection() {
 function EmergenciaSection() {
   return (
     <SectionWrapper
-      title="Recursos de Emergencia"
-      subtitle="Información de contacto y protocolos de actuación inmediata para situaciones urgentes."
+      title="Emergency Resources"
+      subtitle="Contact information and immediate action protocols for urgent situations."
     >
-      {/* Imagen 3D de teléfono de ayuda estilo Pixar */}
+      {/* 3D image of help phone Pixar style */}
       <div className="flex justify-center mb-6">
         <img 
           src="/images/telefono_antiguo.webp" 
-          alt="Teléfono de ayuda estilo 3D Pixar" 
+          alt="Help phone Pixar 3D style" 
           className="w-48 h-48 object-contain"
         />
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-gray-800 mb-4">📞 Teléfonos de Ayuda Inmediata</h3>
+        <h3 className="text-xl font-bold text-gray-800 mb-4">📞 Immediate Help Hotlines</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <Card className="border-l-4 border-l-green-500">
-            <h4 className="font-bold text-gray-800">Teléfono de la Esperanza</h4>
-            <p className="text-3xl font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent mt-2">717 003 717</p>
-            <p className="text-sm text-gray-500 mt-1">24 horas • Gratuito • Confidencial</p>
+            <h4 className="font-bold text-gray-800">National Suicide Prevention Lifeline</h4>
+            <p className="text-3xl font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent mt-2">988</p>
+            <p className="text-sm text-gray-500 mt-1">24 hours • Free • Confidential</p>
             <div className="mt-3 p-2 bg-gradient-to-r from-green-50 to-blue-50 rounded text-green-700 text-xs">
-              Atención psicológica inmediata
+              Immediate psychological support
             </div>
           </Card>
           <Card className="border-l-4 border-l-green-500">
-            <h4 className="font-bold text-gray-800">AEPAE (Prevención Acoso Escolar)</h4>
-            <p className="text-3xl font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent mt-2">628 740 299</p>
-            <p className="text-sm text-gray-500 mt-1">Asociación de referencia en España</p>
+            <h4 className="font-bold text-gray-800">StopBullying Hotline</h4>
+            <p className="text-3xl font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent mt-2">1-800-273-8255</p>
+            <p className="text-sm text-gray-500 mt-1">Leading organization in USA</p>
             <div className="mt-3 p-2 bg-green-50 rounded text-green-700 text-xs">
-              Especialistas en bullying
+              Bullying specialists
             </div>
           </Card>
           <Card className="border-l-4 border-l-red-500">
-            <h4 className="font-bold text-gray-800">Emergencias</h4>
-            <p className="text-3xl font-bold text-red-600 mt-2">112</p>
-            <p className="text-sm text-gray-500 mt-1">Peligro inmediato</p>
+            <h4 className="font-bold text-gray-800">Emergency</h4>
+            <p className="text-3xl font-bold text-red-600 mt-2">911</p>
+            <p className="text-sm text-gray-500 mt-1">Immediate danger</p>
             <div className="mt-3 p-2 bg-red-50 rounded text-red-700 text-xs">
-              Solo para situaciones de riesgo físico
+              Only for physical risk situations
             </div>
           </Card>
           <Card className="border-l-4 border-l-purple-500">
-            <h4 className="font-bold text-gray-800">Contra el Acoso Escolar</h4>
-            <p className="text-3xl font-bold text-purple-600 mt-2">900 018 018</p>
-            <p className="text-sm text-gray-500 mt-1">Ministerio de Educación</p>
+            <h4 className="font-bold text-gray-800">Crisis Text Line</h4>
+            <p className="text-3xl font-bold text-purple-600 mt-2">Text HOME to 741741</p>
+            <p className="text-sm text-gray-500 mt-1">Text support 24/7</p>
             <div className="mt-3 p-2 bg-purple-50 rounded text-purple-700 text-xs">
-              Orientación y derivación
+              Guidance and support
             </div>
           </Card>
         </div>
@@ -702,27 +702,27 @@ function EmergenciaSection() {
       <Card>
         <h3 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
           <X className="text-red-500" size={20} />
-          Qué NO Hacer Nunca
+          What to NEVER Do
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ul className="space-y-3 text-gray-600">
             <li className="flex items-start gap-3">
               <X size={16} className="text-red-500 flex-shrink-0 mt-0.5" />
-              <div>No confrontes directamente al acosador ni a sus padres</div>
+              <div>Don't directly confront the bully or their parents</div>
             </li>
             <li className="flex items-start gap-3">
               <X size={16} className="text-red-500 flex-shrink-0 mt-0.5" />
-              <div>No minimices la situación ni culpes a tu hijo</div>
+              <div>Don't minimize the situation or blame your child</div>
             </li>
           </ul>
           <ul className="space-y-3 text-gray-600">
             <li className="flex items-start gap-3">
               <X size={16} className="text-red-500 flex-shrink-0 mt-0.5" />
-              <div>No le digas que se defienda físicamente</div>
+              <div>Don't tell them to fight back physically</div>
             </li>
             <li className="flex items-start gap-3">
               <X size={16} className="text-red-500 flex-shrink-0 mt-0.5" />
-              <div>No prometas que no se lo dirás a nadie si hay riesgo</div>
+              <div>Don't promise you won't tell anyone if there's risk</div>
             </li>
           </ul>
         </div>
@@ -731,7 +731,7 @@ function EmergenciaSection() {
       <Card>
         <h3 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
           <Check className="text-green-500" size={20} />
-          Protocolo de Actuación Inmediata
+          Immediate Action Protocol
         </h3>
         <div className="space-y-4">
           <div className="flex gap-4 items-start">
@@ -739,8 +739,8 @@ function EmergenciaSection() {
               1
             </div>
             <div>
-              <h4 className="font-semibold text-gray-800">Mantén la Calma</h4>
-              <p className="text-gray-600 text-sm">Tu reacción marcará cómo tu hijo se sienta sobre contarte cosas difíciles en el futuro.</p>
+              <h4 className="font-semibold text-gray-800">Stay Calm</h4>
+              <p className="text-gray-600 text-sm">Your reaction will mark how your child feels about telling you difficult things in the future.</p>
             </div>
           </div>
           <div className="flex gap-4 items-start">
@@ -748,8 +748,8 @@ function EmergenciaSection() {
               2
             </div>
             <div>
-              <h4 className="font-semibold text-gray-800">Documenta Todo</h4>
-              <p className="text-gray-600 text-sm">Fechas, lugares, testigos, evidencias físicas. Será crucial para el colegio.</p>
+              <h4 className="font-semibold text-gray-800">Document Everything</h4>
+              <p className="text-gray-600 text-sm">Dates, places, witnesses, physical evidence. It will be crucial for the school.</p>
             </div>
           </div>
           <div className="flex gap-4 items-start">
@@ -757,8 +757,8 @@ function EmergenciaSection() {
               3
             </div>
             <div>
-              <h4 className="font-semibold text-gray-800">Contacta el Colegio</h4>
-              <p className="text-gray-600 text-sm">Habla primero con el tutor, luego con el director si es necesario.</p>
+              <h4 className="font-semibold text-gray-800">Contact the School</h4>
+              <p className="text-gray-600 text-sm">Talk to the teacher first, then the principal if necessary.</p>
             </div>
           </div>
           <div className="flex gap-4 items-start">
@@ -766,8 +766,8 @@ function EmergenciaSection() {
               4
             </div>
             <div>
-              <h4 className="font-semibold text-gray-800">Busca Apoyo Profesional</h4>
-              <p className="text-gray-600 text-sm">Psicólogo infantil especializado en bullying para tu hijo y para ti.</p>
+              <h4 className="font-semibold text-gray-800">Seek Professional Support</h4>
+              <p className="text-gray-600 text-sm">Child psychologist specialized in bullying for your child and for you.</p>
             </div>
           </div>
         </div>
@@ -775,13 +775,13 @@ function EmergenciaSection() {
 
       <TipCard 
         icon={<Phone className="text-green-500" size={20} />}
-        title="Apps y Recursos Digitales"
+        title="Apps and Digital Resources"
       >
         <div className="text-green-700 text-sm space-y-2">
-          <p><strong>Nomasbullying.es:</strong> App gratuita con consejos y estrategias</p>
-          <p><strong>StopBullying.gov:</strong> Recursos del gobierno estadounidense (en inglés)</p>
-          <p><strong>AEPAE:</strong> Chat online para menores en situación de riesgo</p>
-          <p><strong>Teléfono ANAR:</strong> 900 20 20 10 (gratuito y confidencial)</p>
+          <p><strong>Nomasbullying.com:</strong> Free app with tips and strategies</p>
+          <p><strong>StopBullying.gov:</strong> US government resources</p>
+          <p><strong>Cyberbullying Research Center:</strong> Online chat for at-risk minors</p>
+          <p><strong>National Helpline:</strong> 1-800-422-4453 (free and confidential)</p>
         </div>
       </TipCard>
     </SectionWrapper>
