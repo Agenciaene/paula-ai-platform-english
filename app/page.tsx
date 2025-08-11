@@ -414,7 +414,7 @@ export default function AntiBullyingLanding() {
               
               {/* 🌟 Imagen principal - TAMAÑO CONTROLADO */}
               <Image
-                src="/images/usateam.webp"
+                src="/images/usa_antibullying.webp"
                 alt="Three protective animal superheroes: blue dog, green eagle and orange hedgehog with shields"
                 width={450}
                 height={350}
