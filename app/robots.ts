@@ -1,15 +1,20 @@
 import type { MetadataRoute } from "next"
 
 export default function robots(): MetadataRoute.Robots {
-  // ¡IMPORTANTE! Cambia esta URL por tu dominio real
   const baseUrl = "https://nomasbullying.es"
-
+  
   return {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/chat/"],
+      disallow: [
+        "/api/",
+        "/_next/",
+        "/admin",
+        "/*.json$",
+      ],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   }
 }
