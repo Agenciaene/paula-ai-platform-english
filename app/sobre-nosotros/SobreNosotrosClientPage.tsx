@@ -22,7 +22,7 @@ export default function SobreNosotrosClientPage() {
             className="flex items-center gap-2 text-green-600 hover:text-green-700 hover:bg-green-50 border border-green-100 hover:border-green-200 rounded-lg px-4 py-2 transition-all duration-200 group"
           >
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform duration-200" />
-            <span className="font-medium text-sm">Volver</span>
+            <span className="font-medium text-sm">Back</span>
           </button>
         </div>
       </header>
@@ -32,48 +32,48 @@ export default function SobreNosotrosClientPage() {
           {/* Hero Section */}
           <header className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
-              Protegiendo el futuro de nuestros niños
+              Protecting Our Children's Future
             </h1>
             <p className="mt-4 text-lg md:text-xl bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent font-medium">
-              TECNOLOGÍA Y CIENCIA CONTRA EL ACOSO ESCOLAR
+              TECHNOLOGY AND SCIENCE AGAINST BULLYING
             </p>
             <p className="mt-6 max-w-3xl mx-auto text-lg text-gray-600">
-              En No Más Bullying combinamos tecnología avanzada con conocimiento científico para detectar, prevenir y combatir el acoso escolar. Nuestra misión es clara: crear entornos seguros donde cada niño pueda desarrollarse sin miedo, utilizando herramientas innovadoras que conectan a familias, educadores y profesionales.
+              At No More Bullying, we combine advanced technology with scientific knowledge to detect, prevent, and combat school bullying. Our mission is clear: to create safe environments where every child can develop without fear, using innovative tools that connect families, educators, and professionals.
             </p>
           </header>
 
-          {/* Nuestra Misión */}
-          <Section icon={Shield} title="Nuestra Misión">
+          {/* Our Mission */}
+          <Section icon={Shield} title="Our Mission">
             <p>
-              Detectar el acoso escolar en sus etapas más tempranas, cuando aún es posible intervenir de manera efectiva. Nuestras herramientas reducen drásticamente el tiempo de detección de 6-12 meses a tan solo 24-48 horas, permitiendo una intervención inmediata que puede marcar la diferencia entre un problema pasajero y un trauma duradero.
+              To detect school bullying in its earliest stages, when effective intervention is still possible. Our tools drastically reduce detection time from 6-12 months to just 24-48 hours, enabling immediate intervention that can make the difference between a passing problem and lasting trauma.
             </p>
             <p>
-              No nos conformamos con identificar el problema—proporcionamos soluciones prácticas y personalizadas para cada situación, conectando a padres, educadores y profesionales en un esfuerzo coordinado para proteger a los niños.
+              We don't just identify the problem—we provide practical and personalized solutions for each situation, connecting parents, educators, and professionals in a coordinated effort to protect children.
             </p>
           </Section>
 
-          {/* Metodología */}
-          <Section icon={BrainCircuit} title="Tecnología con Propósito">
+          {/* Methodology */}
+          <Section icon={BrainCircuit} title="Technology with Purpose">
             <div className="grid md:grid-cols-3 gap-8 mt-8">
-              <InfoCard title="Inteligencia Artificial Especializada">
-                Nuestros algoritmos analizan patrones de comportamiento, dibujos infantiles y comunicación para detectar señales sutiles de acoso que suelen pasar desapercibidas para el ojo humano.
+              <InfoCard title="Specialized Artificial Intelligence">
+                Our algorithms analyze behavior patterns, children's drawings, and communication to detect subtle signs of bullying that often go unnoticed by the human eye.
               </InfoCard>
-              <InfoCard title="Simulación de Conversaciones Difíciles">
-                Preparamos a los padres para enfrentar situaciones complejas mediante simulaciones realistas con diferentes personalidades, desde profesores colaborativos hasta los más resistentes.
+              <InfoCard title="Difficult Conversation Simulation">
+                We prepare parents to face complex situations through realistic simulations with different personalities, from collaborative teachers to the most resistant ones.
               </InfoCard>
-              <InfoCard title="Análisis Visual Avanzado">
-                Interpretamos los dibujos infantiles utilizando técnicas de visión por computadora y conocimientos de psicología infantil para identificar señales de angustia emocional.
+              <InfoCard title="Advanced Visual Analysis">
+                We interpret children's drawings using computer vision techniques and child psychology knowledge to identify signs of emotional distress.
               </InfoCard>
             </div>
           </Section>
 
-          {/* Liderazgo */}
-          <Section icon={User} title="Nuestro Equipo">
+          {/* Leadership */}
+          <Section icon={User} title="Our Team">
             <div className="grid md:grid-cols-3 gap-8 items-center">
               <div className="md:col-span-1 flex justify-center">
                 <Image
                   src="/images/alejandro-ortiz.webp"
-                  alt="Alejandro Ortiz, fundador de KOBully"
+                  alt="Alejandro Ortiz, founder of No More Bullying"
                   width={300}
                   height={300}
                   className="object-cover rounded-lg w-80 h-80"
@@ -81,67 +81,67 @@ export default function SobreNosotrosClientPage() {
               </div>
               <div className="md:col-span-2 space-y-4">
                 <p>
-                  Bajo la dirección de <strong>Alejandro Ortiz</strong>, hemos creado un equipo multidisciplinar de psicólogos infantiles, ingenieros de software, especialistas en IA y educadores con más de 20 años de experiencia combinada en el campo de la protección infantil.
+                  Under the leadership of <strong>Alejandro Ortiz</strong>, we have created a multidisciplinary team of child psychologists, software engineers, AI specialists, and educators with over 20 years of combined experience in the field of child protection.
                 </p>
                 <p>
-                  Nuestra experiencia personal con el acoso escolar nos impulsa a crear soluciones que realmente funcionen. No somos teóricos—somos padres, educadores y profesionales comprometidos con un cambio real y medible.
+                  Our personal experience with bullying drives us to create solutions that really work. We're not theorists—we're parents, educators, and professionals committed to real and measurable change.
                 </p>
                 <blockquote className="border-l-4 border-green-500 pl-4 italic text-gray-700">
-                  "Cada minuto que reducimos en la detección del acoso es un día menos de sufrimiento para un niño."
+                  "Every minute we reduce in bullying detection is one less day of suffering for a child."
                 </blockquote>
               </div>
             </div>
           </Section>
 
-          {/* Imagen 3D del equipo protector */}
+          {/* 3D Team Protection Image */}
           <div className="flex justify-center">
             <img 
               src="/images/equipo_bueno2.webp" 
-              alt="Equipo protector anti-bullying estilo 3D Pixar" 
+              alt="Anti-bullying protective team Pixar 3D style" 
               className="w-96 h-72 object-contain"
             />
           </div>
 
-          {/* Ventajas */}
-          <Section icon={Lightbulb} title="Por Qué Somos Diferentes">
+          {/* Advantages */}
+          <Section icon={Lightbulb} title="Why We're Different">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white p-6 rounded-lg border border-green-200 shadow-sm">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <Clock className="h-5 w-5 text-green-600" />
-                  Detección Temprana
+                  Early Detection
                 </h3>
                 <p className="text-gray-600">
-                  Mientras los métodos tradicionales pueden tardar meses en identificar situaciones de acoso, nuestras herramientas reducen este tiempo a 24-48 horas, permitiendo una intervención inmediata cuando es más efectiva.
+                  While traditional methods can take months to identify bullying situations, our tools reduce this time to 24-48 hours, allowing immediate intervention when it's most effective.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg border border-green-200 shadow-sm">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <Shield className="h-5 w-5 text-green-600" />
-                  Enfoque Integral
+                  Comprehensive Approach
                 </h3>
                 <p className="text-gray-600">
-                  No nos limitamos a detectar—proporcionamos herramientas prácticas para padres, educadores y niños, creando un ecosistema completo de protección que aborda el problema desde todos los ángulos.
+                  We don't just detect—we provide practical tools for parents, educators, and children, creating a complete protection ecosystem that addresses the problem from all angles.
                 </p>
               </div>
             </div>
           </Section>
 
-          {/* Impacto */}
-          <Section icon={TrendingUp} title="Resultados Medibles">
+          {/* Impact */}
+          <Section icon={TrendingUp} title="Measurable Results">
             <div className="grid md:grid-cols-3 gap-8 text-center">
-              <ImpactStat value="-95%" label="Reducción en tiempo de detección" />
-              <ImpactStat value="+87%" label="Efectividad en intervenciones tempranas" />
-              <ImpactStat value="24h" label="Tiempo de respuesta promedio" />
+              <ImpactStat value="-95%" label="Reduction in detection time" />
+              <ImpactStat value="+87%" label="Effectiveness in early interventions" />
+              <ImpactStat value="24h" label="Average response time" />
             </div>
           </Section>
 
-          {/* Promesa */}
-          <Section icon={HeartHandshake} title="Nuestro Compromiso">
+          {/* Promise */}
+          <Section icon={HeartHandshake} title="Our Commitment">
             <p>
-              En No Más Bullying no ofrecemos soluciones teóricas—entregamos resultados concretos. Cada herramienta, cada algoritmo y cada interacción está diseñada con un único propósito: proteger a los niños del acoso escolar y sus devastadoras consecuencias.
+              At No More Bullying, we don't offer theoretical solutions—we deliver concrete results. Every tool, every algorithm, and every interaction is designed with a single purpose: to protect children from bullying and its devastating consequences.
             </p>
             <p className="font-medium mt-4">
-              Porque entendemos que detrás de cada estadística hay un niño real, con sueños, miedos y un futuro por delante que merece ser protegido.
+              Because we understand that behind every statistic is a real child, with dreams, fears, and a future ahead that deserves to be protected.
             </p>
           </Section>
 
@@ -149,18 +149,18 @@ export default function SobreNosotrosClientPage() {
           <div className="text-center pt-12 border-t border-gray-200">
             <Quote className="mx-auto h-10 w-10 text-green-300" />
             <blockquote className="mt-4 max-w-3xl mx-auto text-xl italic text-gray-800">
-              "No podemos cambiar el pasado, pero con las herramientas adecuadas, podemos transformar el futuro de millones de niños que hoy sufren en silencio."
+              "We cannot change the past, but with the right tools, we can transform the future of millions of children who suffer in silence today."
             </blockquote>
-            <p className="mt-4 font-semibold text-gray-600">– Equipo No Más Bullying</p>
+            <p className="mt-4 font-semibold text-gray-600">– No More Bullying Team</p>
           </div>
         </div>
       </main>
 
-      {/* Footer simple */}
+      {/* Simple footer */}
       <footer className="bg-white border-t border-gray-200 py-8">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <p className="text-gray-500">© 2025 No Más Bullying. Todos los derechos reservados.</p>
-          <p className="text-sm text-gray-400 mt-2">Tecnología al servicio de la protección infantil</p>
+          <p className="text-gray-500">© 2025 No More Bullying. All rights reserved.</p>
+          <p className="text-sm text-gray-400 mt-2">Technology at the service of child protection</p>
         </div>
       </footer>
     </div>
