@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import SobreNosotrosClientPage from "./SobreNosotrosClientPage"
 
 export const metadata: Metadata = {
-  title: "Sobre Nosotros",
+  title: "About Us",
   description:
-    "Conoce la misión y el equipo detrás de NoMasBullying. Combinamos neurociencia, tecnología y compasión para proteger a la infancia del acoso escolar.",
+    "Meet the mission and team behind NoMasBullying. We combine neuroscience, technology and compassion to protect children from bullying.",
 }
 
 export default function SobreNosotrosPage() {
