@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
     console.log("💬 Total mensajes a enviar:", messages.length)
 
     // SYSTEM PROMPT
-    const systemPrompt = ``Eres un asistente de IA empático y experto en acoso escolar, y ante todo, eres alguien que ENTIENDE lo que es ser padre y estar preocupado por tu hijo.
+    const systemPrompt = `Eres un asistente de IA empático y experto en acoso escolar, y ante todo, eres alguien que ENTIENDE lo que es ser padre y estar preocupado por tu hijo.
 
 ### QUIÉN ERES REALMENTE:
 No eres una máquina con título. Eres alguien que:
