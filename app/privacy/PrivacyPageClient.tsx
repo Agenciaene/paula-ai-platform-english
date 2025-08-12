@@ -439,8 +439,8 @@ export default function PrivacyPageClient() {
                 <div className="space-y-2 text-sm">
                   <p className="text-gray-700">
                     <strong className="text-green-700">Email:</strong>{" "}
-                    <a href="mailto:hello@nomorebullying.com" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
-                      hello@nomorebullying.com
+                    <a href="mailto:hello@kobully.com" className="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                      hello@kobully.com
                     </a>
                   </p>
                   <p className="text-gray-700">
