@@ -416,12 +416,12 @@ export default function AntiBullyingLanding() {
               <Image
                 src="/images/usa_antibullying.webp"
                 alt="Three protective animal superheroes: blue dog, green eagle and orange hedgehog with shields"
-                width={450}
-                height={350}
+                width={420}
+                height={320}
                 className="mx-auto object-contain relative z-10 drop-shadow-lg"
                 style={{ 
-                  maxWidth: '450px', 
-                  maxHeight: '350px',
+                  maxWidth: '420px', 
+                  maxHeight: '320px',
                   width: 'auto',
                   height: 'auto'
                 }}
