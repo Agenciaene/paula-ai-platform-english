@@ -5,8 +5,8 @@ export const maxDuration = 30
 
 // CONFIGURACIÓN DE MODELOS
 const MODELS = {
-  primary: 'gpt-5',     // Intentamos primero con GPT-4o
-  fallback: 'gpt-4',         // Si falla, usamos GPT-4
+  primary: 'gpt-5-nano',     // Intentamos primero con GPT-4o
+  fallback: 'gpt-4o',         // Si falla, usamos GPT-4
   useStreaming: true          // Puedes cambiar a false si da problemas
 }
 
