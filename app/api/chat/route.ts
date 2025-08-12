@@ -1,17 +1,15 @@
 // app/api/chat/route.ts - VERSIÓN CORREGIDA GPT-5
 import { NextRequest } from "next/server"
-import { OpenAI } from "openai" // ✅ Importación correcta
+import { OpenAI } from "openai"
 
 export const maxDuration = 30
 
-// ✅ CONFIGURACIÓN CORREGIDA
 const MODELS = {
   primary: 'gpt-5-nano',
   fallback: 'gpt-4o', 
   useStreaming: true
 }
 
-// ✅ INICIALIZAR CLIENTE OPENAI CORRECTAMENTE
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
@@ -20,7 +18,6 @@ export async function POST(req: NextRequest) {
   console.log("=== INICIANDO CHAT API GPT-5 ===")
   
   try {
-    // VERIFICAR API KEY
     if (!process.env.OPENAI_API_KEY) {
       console.error("❌ Falta OPENAI_API_KEY")
       return new Response("OpenAI API key not configured", { status: 500 })
@@ -29,83 +26,100 @@ export async function POST(req: NextRequest) {
     let messages: any[] = []
     const contentType = req.headers.get("Content-Type") || ""
 
-    // ... [Tu código de parseo se mantiene igual] ...
-    // PARSEAR REQUEST (JSON o FormData)
+    // PARSEAR REQUEST
     if (contentType.includes("application/json")) {
       const { messages: reloadedMessages } = await req.json()
       console.log("📨 Request tipo JSON con", reloadedMessages?.length || 0, "mensajes")
       messages = reloadedMessages
     } else if (contentType.includes("multipart/form-data")) {
-      // ... [código formData igual] ...
+      const formData = await req.formData()
+      const messagesData = formData.get("messages")
+      if (messagesData) {
+        messages = JSON.parse(messagesData.toString())
+      }
     }
 
     console.log("💬 Total mensajes a enviar:", messages.length)
 
-    // SYSTEM PROMPT [mantener igual]
-    const systemPrompt = `Eres un asistente de IA empático y experto en acoso escolar...`
+    const systemPrompt = `Eres un asistente de IA empático y experto en acoso escolar llamado Paula AI. Tu misión es ayudar a niños, padres y educadores a enfrentar situaciones de bullying con superhéroes como Michia, Firuja y Bolia. Proporciona consejos prácticos, apoyo emocional y estrategias efectivas para crear entornos escolares seguros.`
 
-    // ✅ FUNCIÓN CORREGIDA PARA GPT-5
+    // ✅ DETECTAR SI HAY IMÁGENES
+    const hasImages = messages.some((msg: any) => 
+      Array.isArray(msg.content) && 
+      msg.content.some((content: any) => content.type === 'image_url')
+    )
+
+    // ✅ FUNCIÓN GPT-5 CORREGIDA
     async function tryModelGPT5(modelName: string, userType: string = 'parent') {
       console.log(`🤖 Intentando GPT-5: ${modelName}`)
       
-      // ✅ CONFIGURACIÓN DINÁMICA SEGÚN USUARIO
-      const getOptimalConfig = (model: string, userType: string) => {
-        const baseConfig = {
-          model: model,
-          messages: [
-            { role: "system", content: systemPrompt },
-            ...messages.map((msg: any) => ({
-              role: msg.role,
-              content: msg.content
-            }))
-          ],
-          max_tokens: 1500,
-          temperature: 0.7,
-        }
-
-        // ✅ NUEVOS PARÁMETROS GPT-5
-        if (model.startsWith('gpt-5')) {
-          return {
-            ...baseConfig,
-            // 🔥 VERBOSITY DINÁMICO
-            verbosity: userType === 'child' ? 'low' : 
-                      userType === 'therapist' ? 'high' : 'medium',
-            
-            // ⚡ REASONING EFFORT OPTIMIZADO  
-            reasoning_effort: userType === 'emergency' ? 'minimal' : 'medium',
-          }
-        }
-        
-        return baseConfig
+      // ❌ SI HAY IMÁGENES, NO USAR GPT-5 AÚN
+      if (hasImages) {
+        throw new Error("GPT-5 no compatible con imágenes aún")
       }
 
-      const config = getOptimalConfig(modelName, userType)
-      
-      // ✅ USAR OPENAI SDK OFICIAL
-      const response = await openai.chat.completions.create({
-        ...config,
-        stream: MODELS.useStreaming,
-      })
-
-      console.log(`✅ ${modelName} funcionando correctamente`)
-      return response
-    }
-
-    // ✅ FUNCIÓN FALLBACK PARA GPT-4
-    async function tryModelGPT4(modelName: string) {
-      console.log(`🤖 Fallback a: ${modelName}`)
-      
-      const response = await openai.chat.completions.create({
+      // ✅ USAR RESPONSES API PARA GPT-5
+      const response = await openai.responses.create({
         model: modelName,
-        messages: [
+        input: [
           { role: "system", content: systemPrompt },
           ...messages.map((msg: any) => ({
             role: msg.role,
             content: msg.content
           }))
         ],
+        text: {
+          verbosity: userType === 'child' ? 'low' : 
+                    userType === 'therapist' ? 'high' : 'medium'
+        },
+        reasoning: {
+          effort: userType === 'emergency' ? 'minimal' : 'minimal'  // ✅ SIEMPRE MINIMAL
+        },
+        max_output_tokens: 8000,  // ✅ TOKENS SUFICIENTES
+        temperature: 0.7,
+        store: false
+      })
+
+      // ✅ EXTRAER CONTENIDO CORRECTAMENTE
+      let content = ""
+      if (response.output && response.output.length > 0) {
+        for (const item of response.output) {
+          if (item.content) {
+            for (const contentItem of item.content) {
+              if (contentItem.text) {
+                content += contentItem.text
+              }
+            }
+          }
+        }
+      }
+
+      // ✅ CONVERTIR A FORMATO CHAT COMPLETIONS
+      return {
+        choices: [{
+          message: {
+            role: "assistant",
+            content: content
+          },
+          finish_reason: "stop"
+        }],
+        usage: response.usage,
+        model: modelName
+      }
+    }
+
+    // ✅ FUNCIÓN GPT-4 PARA IMÁGENES
+    async function tryModelGPT4(modelName: string) {
+      console.log(`🤖 Usando GPT-4: ${modelName}`)
+      
+      const response = await openai.chat.completions.create({
+        model: modelName,
+        messages: [
+          { role: "system", content: systemPrompt },
+          ...messages
+        ],
         stream: MODELS.useStreaming,
-        max_tokens: 1500,
+        max_tokens: 4000,
         temperature: 0.7,
         presence_penalty: 0.6,
         frequency_penalty: 0.3
@@ -115,37 +129,38 @@ export async function POST(req: NextRequest) {
       return response
     }
 
-    // ✅ LÓGICA DE RETRY MEJORADA
+    // ✅ LÓGICA DE SELECCIÓN MODELO
     let response
     let modelUsed = MODELS.primary
     
     try {
-      // ✅ INTENTAR GPT-5 PRIMERO
-      response = await tryModelGPT5(MODELS.primary)
-      modelUsed = MODELS.primary
-    } catch (primaryError: any) {
-      console.log("⚠️ GPT-5 falló:", primaryError.message)
-      
-      try {
-        // ✅ FALLBACK A GPT-4
+      if (hasImages) {
+        // ✅ IMÁGENES = GPT-4 DIRECTO
         response = await tryModelGPT4(MODELS.fallback)
         modelUsed = MODELS.fallback
-      } catch (fallbackError: any) {
-        console.error("❌ Ambos modelos fallaron")
-        return new Response(JSON.stringify({
-          error: "No se pudo conectar con ningún modelo",
-          details: {
-            primary: primaryError.message,
-            fallback: fallbackError.message
-          }
-        }), { status: 500 })
+      } else {
+        // ✅ SOLO TEXTO = INTENTAR GPT-5
+        try {
+          response = await tryModelGPT5(MODELS.primary)
+          modelUsed = MODELS.primary
+        } catch (gpt5Error: any) {
+          console.log("⚠️ GPT-5 falló:", gpt5Error.message)
+          response = await tryModelGPT4(MODELS.fallback)
+          modelUsed = MODELS.fallback
+        }
       }
+    } catch (error: any) {
+      console.error("❌ Todos los modelos fallaron:", error)
+      return new Response(JSON.stringify({
+        error: "No se pudo conectar con ningún modelo",
+        details: error.message
+      }), { status: 500 })
     }
 
     console.log(`🎉 Usando modelo: ${modelUsed}`)
 
-    // ✅ MANEJAR RESPUESTA NO-STREAMING
-    if (!MODELS.useStreaming) {
+    // ✅ RESPUESTA NO-STREAMING
+    if (!MODELS.useStreaming || modelUsed === MODELS.primary) {
       const content = response.choices[0].message?.content || "Sin respuesta"
       return new Response(JSON.stringify({
         content,
@@ -155,7 +170,7 @@ export async function POST(req: NextRequest) {
       })
     }
 
-    // ✅ MANEJAR STREAMING CORRECTAMENTE
+    // ✅ STREAMING SOLO PARA GPT-4
     const encoder = new TextEncoder()
 
     const stream = new ReadableStream({
@@ -170,7 +185,6 @@ export async function POST(req: NextRequest) {
             }
           }
           
-          // Enviar señal de finalización
           controller.enqueue(encoder.encode(`0:${JSON.stringify({ done: true, model: modelUsed })}\n`))
           controller.close()
           
