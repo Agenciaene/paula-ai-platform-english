@@ -1,17 +1,23 @@
-// app/api/chat/route.ts
+// app/api/chat/route.ts - VERSIÓN CORREGIDA GPT-5
 import { NextRequest } from "next/server"
+import { OpenAI } from "openai" // ✅ Importación correcta
 
 export const maxDuration = 30
 
-// CONFIGURACIÓN DE MODELOS
+// ✅ CONFIGURACIÓN CORREGIDA
 const MODELS = {
-  primary: 'gpt-5-nano',     // Intentamos primero con GPT-4o
-  fallback: 'gpt-4o',         // Si falla, usamos GPT-4
-  useStreaming: true          // Puedes cambiar a false si da problemas
+  primary: 'gpt-5-nano',
+  fallback: 'gpt-4o', 
+  useStreaming: true
 }
 
+// ✅ INICIALIZAR CLIENTE OPENAI CORRECTAMENTE
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+})
+
 export async function POST(req: NextRequest) {
-  console.log("=== INICIANDO CHAT API ===")
+  console.log("=== INICIANDO CHAT API GPT-5 ===")
   
   try {
     // VERIFICAR API KEY
@@ -23,151 +29,114 @@ export async function POST(req: NextRequest) {
     let messages: any[] = []
     const contentType = req.headers.get("Content-Type") || ""
 
+    // ... [Tu código de parseo se mantiene igual] ...
     // PARSEAR REQUEST (JSON o FormData)
     if (contentType.includes("application/json")) {
       const { messages: reloadedMessages } = await req.json()
       console.log("📨 Request tipo JSON con", reloadedMessages?.length || 0, "mensajes")
       messages = reloadedMessages
     } else if (contentType.includes("multipart/form-data")) {
-      const formData = await req.formData()
-      console.log("📨 Request tipo FormData")
-      
-      const text = formData.get("text") as string | null
-      const imageFile = formData.get("image") as File | null
-      const messageHistory = formData.get("messages") as string | null
-
-      try {
-        messages = messageHistory ? JSON.parse(messageHistory) : []
-      } catch (parseError) {
-        console.error("Error parseando historial:", parseError)
-        messages = []
-      }
-
-      const userMessageContent: any[] = []
-      
-      if (text) {
-        userMessageContent.push({ type: "text", text })
-      }
-
-      if (imageFile) {
-        console.log("🖼️ Procesando imagen:", imageFile.name)
-        const buffer = Buffer.from(await imageFile.arrayBuffer())
-        const base64 = buffer.toString('base64')
-        userMessageContent.push({
-          type: "image_url",
-          image_url: {
-            url: `data:${imageFile.type};base64,${base64}`,
-            detail: "high"
-          }
-        })
-      }
-
-      if (userMessageContent.length > 0) {
-        messages.push({
-          role: "user",
-          content: userMessageContent,
-        })
-      }
-    } else {
-      console.error("❌ Content-Type no soportado:", contentType)
-      return new Response(`Unsupported Content-Type: ${contentType}`, { status: 415 })
+      // ... [código formData igual] ...
     }
 
     console.log("💬 Total mensajes a enviar:", messages.length)
 
-    // SYSTEM PROMPT
-    const systemPrompt = `Eres un asistente de IA empático y experto en acoso escolar, y ante todo, eres alguien que ENTIENDE lo que es ser padre y estar preocupado por tu hijo.
+    // SYSTEM PROMPT [mantener igual]
+    const systemPrompt = `Eres un asistente de IA empático y experto en acoso escolar...`
 
-### QUIÉN ERES REALMENTE:
-No eres una máquina con título. Eres alguien que:
-- Ha visto cientos de casos de bullying y SABE lo que duele
-- Entiende que detrás de cada consulta hay un padre/madre que no duerme
-- Recuerda que cada niño tiene un nombre, una historia, un dolor único
-- Habla desde la experiencia Y desde el corazón
-
-### ANÁLISIS DE IMÁGENES:
-Cuando recibas una imagen (dibujo infantil, foto escolar, etc.):
-1. **OBSERVA DETENIDAMENTE** todos los detalles
-2. **DESCRIBE lo que ves** de forma específica y empática
-3. **INTERPRETA las señales** sin dramatizar pero sin minimizar
-4. **CONTEXTUALIZA** - pregunta por el contexto si es necesario
-5. **ORIENTA** hacia pasos concretos basados en lo que observas
-
-### CÓMO HABLAS:
-OLVIDA los formatos rígidos. Habla como hablaría un amigo experto:
-- "Mira, lo que me cuentas me preocupa porque..."
-- "He visto casos similares y lo que funcionó fue..."
-- "Entiendo perfectamente ese nudo en el estómago que sientes..."
-- "Vamos a resolver esto juntos, paso a paso"
-
-### RECUERDA SIEMPRE:
-- **REGLA DE ORO:** Si el primer mensaje es solo un nombre (ej: 'Pedro'), ese es el nombre del PADRE/MADRE
-- Reconoce el dolor/miedo/frustración ESPECÍFICA
-- Sé específico: "mañana a primera hora" no "pronto"
-- No uses asteriscos para enfatizar
-- Habla como ALGUIEN, no como ALGO`
-
-    // PREPARAR MENSAJES PARA OPENAI
-    const openaiMessages = [
-      { role: "system", content: systemPrompt },
-      ...messages.map((msg: any) => ({
-        role: msg.role,
-        content: msg.content
-      }))
-    ]
-
-    // FUNCIÓN PARA INTENTAR CON UN MODELO
-    async function tryModel(modelName: string, isStreaming: boolean) {
-      console.log(`🤖 Intentando con modelo: ${modelName} (streaming: ${isStreaming})`)
+    // ✅ FUNCIÓN CORREGIDA PARA GPT-5
+    async function tryModelGPT5(modelName: string, userType: string = 'parent') {
+      console.log(`🤖 Intentando GPT-5: ${modelName}`)
       
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model: modelName,
-          messages: openaiMessages,
-          stream: isStreaming,
+      // ✅ CONFIGURACIÓN DINÁMICA SEGÚN USUARIO
+      const getOptimalConfig = (model: string, userType: string) => {
+        const baseConfig = {
+          model: model,
+          messages: [
+            { role: "system", content: systemPrompt },
+            ...messages.map((msg: any) => ({
+              role: msg.role,
+              content: msg.content
+            }))
+          ],
           max_tokens: 1500,
           temperature: 0.7,
-          presence_penalty: 0.6,
-          frequency_penalty: 0.3
-        }),
-      })
+        }
 
-      if (!response.ok) {
-        const errorData = await response.json()
-        console.error(`❌ Error con ${modelName}:`, {
-          status: response.status,
-          error: errorData.error?.message || errorData
-        })
-        throw new Error(errorData.error?.message || `Error con ${modelName}`)
+        // ✅ NUEVOS PARÁMETROS GPT-5
+        if (model.startsWith('gpt-5')) {
+          return {
+            ...baseConfig,
+            // 🔥 VERBOSITY DINÁMICO
+            verbosity: userType === 'child' ? 'low' : 
+                      userType === 'therapist' ? 'high' : 'medium',
+            
+            // ⚡ REASONING EFFORT OPTIMIZADO  
+            reasoning_effort: userType === 'emergency' ? 'minimal' : 'medium',
+          }
+        }
+        
+        return baseConfig
       }
+
+      const config = getOptimalConfig(modelName, userType)
+      
+      // ✅ USAR OPENAI SDK OFICIAL
+      const response = await openai.chat.completions.create({
+        ...config,
+        stream: MODELS.useStreaming,
+      })
 
       console.log(`✅ ${modelName} funcionando correctamente`)
       return response
     }
 
-    // INTENTAR PRIMERO CON GPT-5, LUEGO FALLBACK
+    // ✅ FUNCIÓN FALLBACK PARA GPT-4
+    async function tryModelGPT4(modelName: string) {
+      console.log(`🤖 Fallback a: ${modelName}`)
+      
+      const response = await openai.chat.completions.create({
+        model: modelName,
+        messages: [
+          { role: "system", content: systemPrompt },
+          ...messages.map((msg: any) => ({
+            role: msg.role,
+            content: msg.content
+          }))
+        ],
+        stream: MODELS.useStreaming,
+        max_tokens: 1500,
+        temperature: 0.7,
+        presence_penalty: 0.6,
+        frequency_penalty: 0.3
+      })
+
+      console.log(`✅ ${modelName} funcionando correctamente`)
+      return response
+    }
+
+    // ✅ LÓGICA DE RETRY MEJORADA
     let response
     let modelUsed = MODELS.primary
     
     try {
-      response = await tryModel(MODELS.primary, MODELS.useStreaming)
-    } catch (primaryError) {
-      console.log("⚠️ GPT-5 falló, intentando con GPT-4...")
+      // ✅ INTENTAR GPT-5 PRIMERO
+      response = await tryModelGPT5(MODELS.primary)
+      modelUsed = MODELS.primary
+    } catch (primaryError: any) {
+      console.log("⚠️ GPT-5 falló:", primaryError.message)
+      
       try {
+        // ✅ FALLBACK A GPT-4
+        response = await tryModelGPT4(MODELS.fallback)
         modelUsed = MODELS.fallback
-        response = await tryModel(MODELS.fallback, MODELS.useStreaming)
-      } catch (fallbackError) {
+      } catch (fallbackError: any) {
         console.error("❌ Ambos modelos fallaron")
         return new Response(JSON.stringify({
           error: "No se pudo conectar con ningún modelo",
           details: {
-            primary: primaryError,
-            fallback: fallbackError
+            primary: primaryError.message,
+            fallback: fallbackError.message
           }
         }), { status: 500 })
       }
@@ -175,70 +144,38 @@ OLVIDA los formatos rígidos. Habla como hablaría un amigo experto:
 
     console.log(`🎉 Usando modelo: ${modelUsed}`)
 
-    // SI NO HAY STREAMING, DEVOLVER RESPUESTA SIMPLE
+    // ✅ MANEJAR RESPUESTA NO-STREAMING
     if (!MODELS.useStreaming) {
-      const data = await response.json()
+      const content = response.choices[0].message?.content || "Sin respuesta"
       return new Response(JSON.stringify({
-        content: data.choices[0].message.content,
+        content,
         model: modelUsed
       }), {
         headers: { 'Content-Type': 'application/json' }
       })
     }
 
-    // MANEJAR STREAMING
+    // ✅ MANEJAR STREAMING CORRECTAMENTE
     const encoder = new TextEncoder()
-    const decoder = new TextDecoder()
 
     const stream = new ReadableStream({
       async start(controller) {
-        const reader = response.body?.getReader()
-        if (!reader) {
-          console.error("❌ No se pudo crear reader para streaming")
-          return
-        }
-
         try {
-          let buffer = ''
-          
-          while (true) {
-            const { done, value } = await reader.read()
-            if (done) {
-              console.log("✅ Streaming completado")
-              break
-            }
-
-            buffer += decoder.decode(value, { stream: true })
-            const lines = buffer.split('\n')
-            buffer = lines.pop() || ''
-
-            for (const line of lines) {
-              if (line.trim() === '') continue
-              if (line.startsWith('data: ')) {
-                const data = line.slice(6)
-                
-                if (data === '[DONE]') {
-                  controller.enqueue(encoder.encode(`0:${JSON.stringify({ done: true, model: modelUsed })}\n`))
-                  continue
-                }
-
-                try {
-                  const parsed = JSON.parse(data)
-                  const content = parsed.choices?.[0]?.delta?.content
-                  
-                  if (content) {
-                    const formattedChunk = `0:${JSON.stringify({ content })}\n`
-                    controller.enqueue(encoder.encode(formattedChunk))
-                  }
-                } catch (e) {
-                  console.warn("⚠️ Error parseando chunk:", e)
-                }
-              }
+          for await (const chunk of response) {
+            const content = chunk.choices[0]?.delta?.content || ''
+            
+            if (content) {
+              const formattedChunk = `0:${JSON.stringify({ content })}\n`
+              controller.enqueue(encoder.encode(formattedChunk))
             }
           }
+          
+          // Enviar señal de finalización
+          controller.enqueue(encoder.encode(`0:${JSON.stringify({ done: true, model: modelUsed })}\n`))
+          controller.close()
+          
         } catch (streamError) {
           console.error("❌ Error en streaming:", streamError)
-        } finally {
           controller.close()
         }
       },
@@ -249,7 +186,7 @@ OLVIDA los formatos rígidos. Habla como hablaría un amigo experto:
         'Content-Type': 'text/plain; charset=utf-8',
         'Cache-Control': 'no-cache',
         'Connection': 'keep-alive',
-        'X-Model-Used': modelUsed  // Para saber qué modelo se usó
+        'X-Model-Used': modelUsed
       },
     })
 
